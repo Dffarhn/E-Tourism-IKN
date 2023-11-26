@@ -82,17 +82,19 @@ if (isset($_SESSION['admin']))
         <div class="row mt-5 justify-content-center">
 <?php
 
-$result = mysqli_query($conn, "SELECT judul, gambar FROM `destinasiwisata` ORDER BY RAND() LIMIT 6;");
+$result = mysqli_query($conn, "SELECT * FROM `destinasiwisata` ORDER BY RAND() LIMIT 6;");
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
 ?>
             <div class="col-md-4 mb-3">
+            <a href="../Blog_Page/blog.php?id_blog=<?php echo $row['id_destinasi']; ?>" style="text-decoration: none; color: inherit;">
               <div class="card border-top-0">
                 <img src="pict/<?php echo $row['gambar']?>" class="card-img-top" alt="Project 1">
                 <div class="card-body">
                   <h5 class="card-title"><?php echo  $row['judul']; ?></h5>
                 </div>
               </div>
+            </a>
             </div>
 <?php } ?>
           
@@ -116,18 +118,38 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         <div class="row mt-5 justify-content-center">
 <?php
 
-$result2 = mysqli_query($conn, "SELECT gambar, judul, harga_awal, harga_promo, deskripsi FROM `bookingdestinasi` ORDER BY RAND() LIMIT 6;");
+$result2 = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` ORDER BY RAND() LIMIT 6;");
 while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 {
 ?>
           <div class="col-md-4 mb-3">
+          <a href="../Show_Page/showpage.php?id_booking=<?php echo $row['id_booking']; ?>" style="text-decoration: none; color: inherit;">
             <div class="card">
               <img src="pict/liburan1.png" class="card-img-top" alt="Project 1">
               <div class="card-body">
                 <h3 class="card-title"><?php echo $row['judul'] ?></h3>
                 <h4 class="card-text border-0 px-0 price_liburan ">
-                  <p class="discount_price">Rp. <?php echo $row['harga_promo'] ?></p>
-                  <p class="real_price">Rp. <?php echo $row['harga_awal'] ?></p>
+                  <p class="discount_price">Rp. <?php
+                  
+                   
+
+                  $harga_promo = $row['harga_promo'];
+                  $harga_promo_format = number_format($harga_promo, 0, ',', '.');
+                  echo $harga_promo_format;
+                  
+                  
+                  
+                  ?></p>
+                  <p class="real_price">Rp. <?php 
+                   $harga_awal = $row['harga_awal'];
+                   $harga_awal_format = number_format($harga_awal, 0, ',', '.');
+                   echo $harga_awal_format;
+                  
+                  
+                  
+                  
+                  
+                  ?></p>
 
                 </h4>
                 <p class="card-text deskripsi_liburan"><?php $deskripsi= $row['deskripsi']; 
@@ -146,6 +168,7 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
                 </h4>
               </div>
             </div>
+          </a>
           </div>
 <?php } ?>
         </div>
