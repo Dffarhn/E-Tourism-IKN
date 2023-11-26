@@ -1,0 +1,168 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+.navbar{
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    border: 1px solid black !important;
+    background-color: rgb(224, 217, 217) !important;
+    border-radius: 5px;
+  }
+
+
+.gretting_cont{
+    background-image: url("pict/fillheader.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    width: 100%;
+    height: 80vh;
+}
+.gretting_word{
+    color: white;
+    font-weight: 800;
+    font-size: 325%;
+    text-align: start;
+    padding-top: 10%;
+}
+
+.destinasi_container h3{
+    font-weight: 800;
+    font-size: 325%;
+}
+.destinasi_container p{
+    font-size: 143.75%;
+}
+
+.jelajah_container p{
+    font-size: 143.75%;
+}
+
+.price_liburan{
+    color:#2C8900 ;
+}
+.price_liburan p{
+    color:#2C8900 ;
+    display: inline-block;
+}
+
+.price_liburan .real_price{
+    font-size: 93.75%;
+    color: rgba(165, 165, 165, 1);
+    text-decoration: line-through;
+}
+
+.deskripsi_liburan{
+    font-size: 93.75% !important;
+
+}
+
+.jenis_destinasi{
+    color: white;
+    font-weight: 800;
+    font-size: 250%;
+}
+
+
+.layanan_destinasi h3{
+    text-align: center;
+    font-weight: 800;
+    font-size: 325%;
+}
+.layanan_destinasi p{
+    text-align: center;
+    font-size: 143.75%;
+}
+
+.lokasi_makan svg{
+    display: inline-block;
+    margin-right: 3%;
+}
+
+.lokasi_makan p{
+    display: inline-block ;
+    font-size: 75%;
+}
+
+.transportasi_container .judul h3{
+    font-weight: 800;
+    font-size: 300%;
+}
+.transportasi_container .judul p{
+    font-size: 143.75%;
+}
+
+.transportasi_container .choose_transportasi_container h4{
+    display: inline-block;
+    color: #2C8900;
+    border: 2px solid #2C8900;
+    margin: 2%;
+    
+    background-color: white;
+    padding: 10px 50px;
+    border-radius: 20px;
+}
+.transportasi_container .choose_transportasi_container svg{
+    margin-right: 15px;
+}
+
+.transportasi_option .harga p{
+    font-size: 93.75%;
+    color: #2C8900;
+}
+.transportasi_option .cek_tiket{
+    width: 100%;
+    font-size: 125%;
+    background-color: #2C8900;
+    color: white;
+    border: 0;
+    border-radius: 10px ;
+    padding: 2% 0%;
+}
+
+.about_home{
+    background-color: #EAEAEA;
+
+}
+
+.sosmed_home{
+    background-color: #2C8900;
+    color: white !important;
+}
+
+.follow_sosmed svg{
+    margin: 0px 8px;
+}
+
+.about_us{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 70px;
+
+}
+.about_us div{
+    padding: 10px;
+}
+.about_us div h5{
+    font-weight: 800;
+    font-size: 24px;
+    
+}
+.about_us div p{
+    font-size: 18px;
+    
+}
+
+footer{
+    text-align: center;
+    background-color: #216700 ;
+    padding: 25px ;
+    color: white;
+}

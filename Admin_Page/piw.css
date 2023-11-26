@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.sidebar{
+    position: fixed;
+    background-color: #2C8900;
+    height: 98vh;
+    /* align-items: center; */
+    text-align: left;
+    padding: 5% 2%;
+    width: 25%;
+}
+
+.logo{
+    display: inline-block;
+}
+
+.judul{
+    display: inline-block;
+    font-size:200% ;
+    color: white !important;
+}
+
+.sidebar_menu button{
+    color: white;
+    display: block;
+    margin-top: 20%;
+    background-color: transparent;
+    width: 90%;
+    border: 0px solid  transparent;
+    padding : 5% 5%; 
+
+
+    
+}
+
+.sidebar_menu button:hover{
+    color: white;
+    display: block;
+    margin-top: 20%;
+    background-color: transparent;
+    width: 90%;
+    border: 0px solid  transparent;
+
+    background-color : #FF731D; 
+    padding : 5% 5%; 
+    border-radius: 10px;
+
+}
+.sidebar_menu button svg{
+    margin-right: 10%;
+}
+
+.sidebar_menu{
+    padding-left: 20%;
+
+}
+
+.our_service_word{
+    width: 75%;
+    margin-left: 25%;
+}
+
+/* .dahsboard_menu{ */

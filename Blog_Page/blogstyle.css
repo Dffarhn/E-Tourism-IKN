@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+.navbar{
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    border: 1px solid black !important;
+    background-color: rgb(224, 217, 217) !important;
+    border-radius: 5px;
+}
+
+.show_judul h3{
+    font-size: 281.25% ;
+    font-weight: 800;
+
+}
+
+.show_judul p{
+    font-size: 281.25% ;
+    color: #2C8900 ;
+
+}
+
+.cekout{
+    text-align: end;
+}
+
+.show_judul button{
+    color: #ffffff;
+    background-color: #2C8900 ;
+    padding: 3% 15%;
+    border: 0px;
+    border-radius: 10px ;
+}
+
+.container_desc{
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25) ;
+}
+.show_fasilitas{
+    display: inline-block;
+    margin: 2% 4%;
+}
+
+
+
+
+
+.kamusuka_judul h3{
+    font-weight: 800;
+    font-size: 281.25%;
+}
+
+
+.jelajah_container p{
+    font-size: 143.75%;
+}
+
+.price_liburan{
+    color:#2C8900 ;
+}
+.price_liburan p{
+    color:#2C8900 ;
+    display: inline-block;
+}
+
+.price_liburan .real_price{
+    font-size: 93.75%;
+    color: rgba(165, 165, 165, 1);
+    text-decoration: line-through;
+}
+
+.deskripsi_liburan{
+    font-size: 93.75% !important;
+
+}
+
+.rating_review{
+    color: #FF5722 ;
+    font-size: 143.75%;
+}
+
+.user_review_name{
+    font-size: 143.75%; 
+}
+
+.user_review_image{
+    border-radius: 100%;
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}
+
+
+
+.about_home{
+    background-color: #EAEAEA;
+
+}
+
+.sosmed_home{
+    background-color: #2C8900;
+    color: white !important;
+}
+
+.follow_sosmed svg{
+    margin: 0px 8px;
+}
+
+.about_us{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 70px;
+
+}
+.about_us div{
+    padding: 10px;
+}
+.about_us div h5{
+    font-weight: 800;
+    font-size: 24px;
+    
+}
+.about_us div p{
+    font-size: 18px;
+    
+}
+
+footer{
+    text-align: center;
+    background-color: #216700 ;
+    padding: 25px ;
+    color: white;
+}
+

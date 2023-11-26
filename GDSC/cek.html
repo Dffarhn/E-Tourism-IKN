@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <title>Navbar Scroll</title>
+  <style>
+    /* Tambahkan gaya sesuai kebutuhan Anda */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      height: 500px;
+      /* Ganti tinggi sesuai kebutuhan Anda */
+      margin: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#" onclick="scrollToSection('section1')">Section 1</a>
+    <a href="#" onclick="scrollToSection('section2')">Section 2</a>
+    <a href="#" onclick="scrollToSection('section3')">Section 3</a>
+  </nav>
+
+  <section id="section1">
+    <h2>Section 1</h2>
+    <p>This is the content of section 1.</p>
+  </section>
+
+  <section id="section2">
+    <h2>Section 2</h2>
+    <p>This is the content of section 2.</p>
+  </section>
+
+  <section id="section3">
+    <h2>Section 3</h2>
+    <p>This is the content of section 3.</p>
+  </section>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="tes.js"></script>
+</body>
+
+</html>

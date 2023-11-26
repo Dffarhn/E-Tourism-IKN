@@ -1,0 +1,210 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+.navbar{
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    border: 1px solid black !important;
+    background-color: rgb(224, 217, 217) !important;
+    border-radius: 5px;
+}
+
+.back_button {
+    align-items: start;
+    justify-content: start;
+    display: flex;
+    align-items: center;
+}
+
+.back_button h3 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    align-self: flex-start; /* Menjadikan h3 berada di atas */
+    margin-top: 2%;
+    font-size: 187.5%;
+}
+
+
+.booking_review{
+    margin: 0% 5%;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25) ;
+}
+
+
+.show_judul h3{
+    font-size: 187.5%;
+    font-weight: 800;
+
+}
+
+
+.cekout{
+    
+    text-align: end;
+}
+.cekout button{
+    
+    border: 0px solid transparent;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.cekout input[type="number"]{
+    
+    
+    display: inline-block;
+    margin: 0% 3%;
+    width: 40px;
+    text-align: center;
+}
+
+
+.container_desc{
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25) ;
+}
+.show_fasilitas{
+    display: inline-block;
+    margin: 2% 4%;
+}
+
+
+
+
+
+.kamusuka_judul h3{
+    font-weight: 800;
+    font-size: 325%;
+}
+
+
+.jelajah_container p{
+    font-size: 143.75%;
+}
+
+.price_liburan{
+    color:#2C8900 ;
+}
+.price_liburan p{
+    color:#2C8900 ;
+    display: inline-block;
+}
+
+.price_liburan .real_price{
+    font-size: 93.75%;
+    color: rgba(165, 165, 165, 1);
+    text-decoration: line-through;
+}
+
+.deskripsi_liburan{
+    font-size: 93.75% !important;
+
+}
+
+.reservasi_form{
+    padding: 1% 5%;
+}
+
+.reservasi_data{
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25) ;
+    padding: 3% 3%;
+    border-radius: 10px;
+}
+
+.reservasi_data label{
+    font-size:143.75% ;
+    margin: 3% 0%;
+    
+}
+.reservasi_data input[type="text"]{
+    width: 100%;
+    padding: 2% 4%;
+
+}
+.reservasi_data input[type="date"]{
+    width: 100%;
+    padding: 2% 4%;
+
+}
+
+.reservasi_pembayaran select{
+    width: 100%;
+    padding: 2% 4%;
+    margin: 3% 0%;
+
+}
+
+.reservasi_pembayaran p{
+    font-size: 156.25%;
+    color: #2C8900 ;
+
+}
+.reservasi_pembayaran button{
+    width: 100%;
+    color: #ffffff;
+    background-color: #2C8900 ;
+    padding: 2% 8%;
+    border: 0px;
+    border-radius: 10px ;
+    font-size: 130%;
+    
+}
+
+.total_pembayaran{
+    margin-top: 8%;
+    padding: 0% 3%;
+    
+
+}
+
+.about_home{
+    background-color: #EAEAEA;
+
+}
+
+.sosmed_home{
+    background-color: #2C8900;
+    color: white !important;
+}
+
+.follow_sosmed svg{
+    margin: 0px 8px;
+}
+
+.about_us{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 70px;
+
+}
+.about_us div{
+    padding: 10px;
+}
+.about_us div h5{
+    font-weight: 800;
+    font-size: 24px;
+    
+}
+.about_us div p{
+    font-size: 18px;
+    
+}
+
+footer{
+    text-align: center;
+    background-color: #216700 ;
+    padding: 25px ;
+    color: white;
+}
