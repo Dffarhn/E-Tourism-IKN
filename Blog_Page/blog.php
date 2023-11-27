@@ -18,38 +18,14 @@ if (isset($_GET["id_blog"])) {
         <link rel="stylesheet" href="blogstyle.css" />
       </head>
       <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient shadow-sm navbar sticky-top">
-          <div class="container">
-            <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M9.05273 4.09787C7.62207 5.09823 6.32837 6.28098 5.20532 7.6124C9.79462 7.18633 15.6252 7.88204 22.3944 11.2667C29.623 14.8809 35.4438 15.0031 39.4948 14.2217C39.1272 13.1088 38.6644 12.0392 38.1163 11.0224C33.479 11.5115 27.534 10.8641 20.6056 7.39998C16.206 5.20018 12.3278 4.29401 9.05273 4.09787ZM35.4074 7.16665C31.7453 3.075 26.4234 0.5 20.5 0.5C18.7605 0.5 17.0727 0.722107 15.4637 1.13948C17.6429 1.73409 19.9579 2.60399 22.3944 3.82227C27.467 6.35853 31.8464 7.17516 35.4074 7.16665ZM40.3609 18.1281C35.4669 19.0945 28.7088 18.896 20.6056 14.8444C13.03 11.0566 7.00043 11.1043 2.9339 12.008C2.724 12.0546 2.51904 12.1036 2.31903 12.1546C1.78662 13.3125 1.36163 14.5301 1.0567 15.7945C1.38239 15.7075 1.71893 15.6248 2.06616 15.5476C6.99957 14.4513 13.9701 14.4989 22.3944 18.7111C29.9701 22.4989 35.9996 22.4512 40.0662 21.5475C40.2055 21.5166 40.3428 21.4846 40.4778 21.4516C40.4926 21.1363 40.5 20.819 40.5 20.5C40.5 19.6975 40.4528 18.906 40.3609 18.1281ZM39.8248 25.6723C34.9783 26.5196 28.417 26.1944 20.6056 22.2888C13.03 18.501 7.00043 18.5487 2.9339 19.4524C2.03125 19.6529 1.21924 19.8972 0.50293 20.1551C0.500977 20.2698 0.5 20.3848 0.5 20.5C0.5 31.5457 9.45429 40.5 20.5 40.5C29.7571 40.5 37.5453 34.2109 39.8248 25.6723Z"
-                fill="url(#paint0_linear_340_75)"
-              />
-              <defs>
-                <linearGradient id="paint0_linear_340_75" x1="36.5" y1="43.7" x2="-3.23321" y2="36.0931" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#5D50C6" />
-                  <stop offset="1" stop-color="#F85E9F" />
-                </linearGradient>
-              </defs>
-            </svg>
+        <?php 
+        include "../Navbar/navbarmain.php";
+        ?>
     
-            <a class="navbar-brand nav-link text-dark fw-bold" href="#">E-Tourism</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav mx-auto">
-                <a class="nav-link active text-dark me-5" aria-current="page" href="#home"> Home </a>
-                <a class="nav-link text-dark me-5" href="#about"> Destinasi </a>
-                <a class="nav-link text-dark me-5" href="#project"> FAQ </a>
-                <a class="nav-link text-dark me-5" href="#contact"> Manage </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-    
+    <?php
+    $result = mysqli_query($conn, "SELECT * FROM `destinasiwisata` WHERE id_destinasi = $id_blog_now;");
+    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+    { ?>
         <div class="row mt-5 justify-content-center px-5">
           <div class="col-md-12 mb-3">
             <div class="card">
@@ -57,10 +33,6 @@ if (isset($_GET["id_blog"])) {
             </div>
           </div>
         </div>
-    <?php
-    $result = mysqli_query($conn, "SELECT judul, deskripsi FROM `destinasiwisata` WHERE id_destinasi = $id_blog_now;");
-    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-    { ?>
         <div class="row mt-5 justify-content-center px-5 show_judul">
           <div class="col-md-12 mb-3">
             <h3><?php echo $row['judul']?></h3>
@@ -73,7 +45,9 @@ if (isset($_GET["id_blog"])) {
             <p> <?php echo $row['deskripsi']?></p>
           </div>
         </div>
-    <?php }
+    <?php 
+    $id_jenis_now = $row['id_jenis'];
+    }
     ?>
     
         <div class="kamusuka_judul mt-5 px-5">
@@ -84,72 +58,23 @@ if (isset($_GET["id_blog"])) {
     
         <div class="kamusuka_container px-5 mt-5">
           <div class="row mt-5 justify-content-center">
+          <?php
+
+$result = mysqli_query($conn, "SELECT * FROM `destinasiwisata` WHERE id_jenis = $id_jenis_now LIMIT 3;");
+while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+{
+?>
             <div class="col-md-4 mb-3">
-              <div class="card">
-                <img src="pict/wisata1.png" class="card-img-top" alt="Project 1" />
+            <a href="../Blog_Page/blog.php?id_blog=<?php echo $row['id_destinasi']; ?>" style="text-decoration: none; color: inherit;">
+              <div class="card border-top-0 card_show">
+                <img src="pict/<?php echo $row['gambar']?>" class="card-img-top" alt="Project 1">
                 <div class="card-body">
-                  <h3 class="card-title">Bromo, Jawa Timur</h3>
-                  <h4 class="card-text border-0 px-0 price_liburan">
-                    <p class="discount_price">Rp. 1.530.000</p>
-                    <p class="real_price">Rp. 1.800.000</p>
-                  </h4>
-                  <p class="card-text deskripsi_liburan">untuk 2 tiket pesawat, penginapan 2 malam, tour guide, makan malam, ...</p>
-                  <h4 class="card-text border-0 px-0 price_liburan">
-                    4.5
-                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M15.9189 12.3194C15.6599 12.5704 15.5409 12.9334 15.5999 13.2894L16.4889 18.2094C16.5639 18.6264 16.3879 19.0484 16.0389 19.2894C15.6969 19.5394 15.2419 19.5694 14.8689 19.3694L10.4399 17.0594C10.2859 16.9774 10.1149 16.9334 9.93989 16.9284H9.66889C9.57489 16.9424 9.48289 16.9724 9.39889 17.0184L4.96888 19.3394C4.74988 19.4494 4.50188 19.4884 4.25888 19.4494C3.66688 19.3374 3.27188 18.7734 3.36888 18.1784L4.25888 13.2584C4.31788 12.8994 4.19888 12.5344 3.93988 12.2794L0.328876 8.77937C0.0268757 8.48637 -0.0781242 8.04637 0.0598758 7.64939C0.193876 7.25339 0.535876 6.96439 0.948876 6.89939L5.91888 6.17839C6.29688 6.13939 6.62888 5.90939 6.79888 5.56939L8.98889 1.07939C9.04089 0.97939 9.10789 0.88739 9.18889 0.80939L9.27889 0.73939C9.32589 0.68739 9.37988 0.64439 9.43989 0.60939L9.54889 0.56939L9.71889 0.49939H10.1399C10.5159 0.53839 10.8469 0.76339 11.0199 1.09939L13.2389 5.56939C13.3989 5.89639 13.7099 6.12339 14.0689 6.17839L19.0389 6.89939C19.4589 6.95939 19.8099 7.24939 19.9489 7.64939C20.0799 8.05037 19.9669 8.49037 19.6589 8.77937L15.9189 12.3194Z"
-                        fill="#FF5722"
-                      />
-                    </svg>
-                  </h4>
+                  <h5 class="card-title"><?php echo  $row['judul']; ?></h5>
                 </div>
               </div>
+            </a>
             </div>
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <img src="pict/wisata2.png" class="card-img-top" alt="Project 2" />
-                <div class="card-body">
-                  <h3 class="card-title">Bromo, Jawa Timur</h3>
-                  <h4 class="card-text border-0 px-0 price_liburan">
-                    <p class="discount_price">Rp. 1.530.000</p>
-                    <p class="real_price">Rp. 1.800.000</p>
-                  </h4>
-                  <p class="card-text deskripsi_liburan">untuk 2 tiket pesawat, penginapan 2 malam, tour guide, makan malam, ...</p>
-                  <h4 class="card-text border-0 px-0 price_liburan">
-                    4.5
-                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M15.9189 12.3194C15.6599 12.5704 15.5409 12.9334 15.5999 13.2894L16.4889 18.2094C16.5639 18.6264 16.3879 19.0484 16.0389 19.2894C15.6969 19.5394 15.2419 19.5694 14.8689 19.3694L10.4399 17.0594C10.2859 16.9774 10.1149 16.9334 9.93989 16.9284H9.66889C9.57489 16.9424 9.48289 16.9724 9.39889 17.0184L4.96888 19.3394C4.74988 19.4494 4.50188 19.4884 4.25888 19.4494C3.66688 19.3374 3.27188 18.7734 3.36888 18.1784L4.25888 13.2584C4.31788 12.8994 4.19888 12.5344 3.93988 12.2794L0.328876 8.77937C0.0268757 8.48637 -0.0781242 8.04637 0.0598758 7.64939C0.193876 7.25339 0.535876 6.96439 0.948876 6.89939L5.91888 6.17839C6.29688 6.13939 6.62888 5.90939 6.79888 5.56939L8.98889 1.07939C9.04089 0.97939 9.10789 0.88739 9.18889 0.80939L9.27889 0.73939C9.32589 0.68739 9.37988 0.64439 9.43989 0.60939L9.54889 0.56939L9.71889 0.49939H10.1399C10.5159 0.53839 10.8469 0.76339 11.0199 1.09939L13.2389 5.56939C13.3989 5.89639 13.7099 6.12339 14.0689 6.17839L19.0389 6.89939C19.4589 6.95939 19.8099 7.24939 19.9489 7.64939C20.0799 8.05037 19.9669 8.49037 19.6589 8.77937L15.9189 12.3194Z"
-                        fill="#FF5722"
-                      />
-                    </svg>
-                  </h4>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <img src="pict/wisata3.png" class="card-img-top" alt="Project 3" />
-                <div class="card-body">
-                  <h3 class="card-title">Bromo, Jawa Timur</h3>
-                  <h4 class="card-text border-0 px-0 price_liburan">
-                    <p class="discount_price">Rp. 1.530.000</p>
-                    <p class="real_price">Rp. 1.800.000</p>
-                  </h4>
-                  <p class="card-text deskripsi_liburan">untuk 2 tiket pesawat, penginapan 2 malam, tour guide, makan malam, ...</p>
-                  <h4 class="card-text border-0 px-0 price_liburan">
-                    4.5
-                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M15.9189 12.3194C15.6599 12.5704 15.5409 12.9334 15.5999 13.2894L16.4889 18.2094C16.5639 18.6264 16.3879 19.0484 16.0389 19.2894C15.6969 19.5394 15.2419 19.5694 14.8689 19.3694L10.4399 17.0594C10.2859 16.9774 10.1149 16.9334 9.93989 16.9284H9.66889C9.57489 16.9424 9.48289 16.9724 9.39889 17.0184L4.96888 19.3394C4.74988 19.4494 4.50188 19.4884 4.25888 19.4494C3.66688 19.3374 3.27188 18.7734 3.36888 18.1784L4.25888 13.2584C4.31788 12.8994 4.19888 12.5344 3.93988 12.2794L0.328876 8.77937C0.0268757 8.48637 -0.0781242 8.04637 0.0598758 7.64939C0.193876 7.25339 0.535876 6.96439 0.948876 6.89939L5.91888 6.17839C6.29688 6.13939 6.62888 5.90939 6.79888 5.56939L8.98889 1.07939C9.04089 0.97939 9.10789 0.88739 9.18889 0.80939L9.27889 0.73939C9.32589 0.68739 9.37988 0.64439 9.43989 0.60939L9.54889 0.56939L9.71889 0.49939H10.1399C10.5159 0.53839 10.8469 0.76339 11.0199 1.09939L13.2389 5.56939C13.3989 5.89639 13.7099 6.12339 14.0689 6.17839L19.0389 6.89939C19.4589 6.95939 19.8099 7.24939 19.9489 7.64939C20.0799 8.05037 19.9669 8.49037 19.6589 8.77937L15.9189 12.3194Z"
-                        fill="#FF5722"
-                      />
-                    </svg>
-                  </h4>
-                </div>
-              </div>
-            </div>
+<?php } ?>
           </div>
         </div>
     
