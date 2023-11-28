@@ -164,7 +164,7 @@ include "../database/koneksi.php";
                                        ?></td>
                                        <td><?php echo $rows['nama_jenis'];?></td>
                                        <td>
-                                          <a style="color: white;"href="">
+                                          <a style="color: white;"href="../Admin_Page/editproses.php?id_booking=<?php echo $rows['id_booking']; ?>">
                                             <button class="btn btn-success btn-sm">
 
                                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> 

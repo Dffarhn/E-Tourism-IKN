@@ -3,7 +3,8 @@ session_start();
 
 include "../database/koneksi.php";
 
-$blog_to_edit = $_GET['id_destinasi'];
+$blog_to_edit = isset($_GET['id_destinasi']) ? $_GET['id_destinasi'] : null;
+$booking_to_edit = isset($_GET['id_booking']) ? $_GET['id_booking'] : null;
 // $password = $_GET['password'];
 // $password = md5($password);
 
@@ -18,6 +19,13 @@ if (isset($blog_to_edit)) {
     # code...
 }
 
+if (isset($booking_to_edit)) {
+    $_SESSION['edit_booking'] = $booking_to_edit;
+    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=../PostBooking_page/postbooking.php">';
+	exit;
+
+    # code...
+}
 // if ($password == $data['password'])
 // {
 // 	if ($username === 'admin') {
