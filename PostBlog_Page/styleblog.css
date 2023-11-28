@@ -39,16 +39,24 @@ body{
   background-color: #A5A5A5;
 
   width: 15%;
+  cursor: pointer;
+  padding: 1% 3%;
 
 }
 
-.our_service_word form button svg{
+.our_service_word form label svg{
     margin-right: 7%;
 }
 .our_service_word form textarea{
 
     width: 95%;
     padding: 2%;
+}
+
+.our_service_word form .image_button input[type="text"]{
+    width: 10%;
+    background-color: #2C8900;
+
 }
 
 .upload_button{
