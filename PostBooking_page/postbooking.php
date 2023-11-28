@@ -36,7 +36,7 @@ if (isset($_SESSION['edit_booking'])) {
 
             ?>
     
-              <form action="uploadbookingproses.php" method="post">
+              <form action="../CRUD_konten/CRUD2.php" method="post">
                 <div class="row mt-4 justify-content-center px-4">
                     <div class="col-md-6 mb-3">
                         <input name = "judul" type="text" placeholder="Judul" value = "<?php echo $row['judul']?>">
@@ -99,11 +99,12 @@ if (isset($_SESSION['edit_booking'])) {
                     <textarea name="deskripsi" id="" cols="30" rows="10" placeholder="Deskripsi"><?php echo $row['deskripsi']?></textarea>
     
                 </div>
+                <input type="hidden" name="id_booking" value="<?php echo $row['id_booking']; ?>">
             <?php } ?>
     
                 <div class="px-4 d-flex justify-content-end">
-                <input type="submit" value = "Delete" class="upload_button"></input>
-                <input type="submit" value = "Update" class="upload_button"></input>
+                <input type="submit" name="action" value = "Delete" class="upload_button"></input>
+                <input type="submit" name="action" value = "Update" class="upload_button"></input>
     
                 </div>
     
