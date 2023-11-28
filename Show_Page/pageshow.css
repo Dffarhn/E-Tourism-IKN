@@ -210,3 +210,27 @@ footer{
   }
     
 }
+
+.lokasi_makan svg{
+    display: inline-block;
+    margin-right: 3%;
+}
+
+.lokasi_makan p{
+    display: inline-block ;
+    font-size: 75%;
+}
+
+.harga p{
+    font-size: 93.75%;
+    color: #2C8900;
+}
+.cek_tiket{
+    width: 100%;
+    font-size: 125%;
+    background-color: #2C8900;
+    color: white;
+    border: 0;
+    border-radius: 10px ;
+    padding: 2% 0%;
+}

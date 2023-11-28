@@ -201,12 +201,61 @@ if (isset($_GET['id_booking'])) {
         <div class="row mt-5 justify-content-center">
         <?php
 
-$result = mysqli_query($conn, "SELECT * FROM `destinasiwisata` WHERE id_jenis = $id_jenis_now LIMIT 3;");
+$result = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` WHERE id_jenis = $id_jenis_now ORDER BY RAND() LIMIT 3;");
 while($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
+  if ($id_jenis_now == 2) {?>
+  <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="pict/wisata1.png" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h3 class="card-title"> <?php echo $row2['judul'] ?></h3>
+
+              <h4 class="card-text border-0 px-0 lokasi_makan"> 
+
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.25 11.4375V8.75C6.25 7.375 7.375 6.25 8.75 6.25H21.25C22.625 6.25 23.75 7.375 23.75 8.75V11.45C22.3 11.9625 21.25 13.3375 21.25 14.9625V17.5H8.75V14.95C8.75 13.3375 7.7 11.95 6.25 11.4375ZM25 12.5C23.625 12.5 22.5 13.625 22.5 15V18.75H7.5V15C7.5 14.337 7.23661 13.7011 6.76777 13.2322C6.29893 12.7634 5.66304 12.5 5 12.5C4.33696 12.5 3.70107 12.7634 3.23223 13.2322C2.76339 13.7011 2.5 14.337 2.5 15V21.25C2.5 22.625 3.625 23.75 5 23.75V26.25H7.5V23.75H22.5V26.25H25V23.75C26.375 23.75 27.5 22.625 27.5 21.25V15C27.5 13.625 26.375 12.5 25 12.5Z" fill="#2C8900"/>
+                  </svg>
+                
+              <p><?php $deskripsi= $row2['fasilitas']; 
+                $words = str_word_count($deskripsi, 1);
+
+                // Mengambil 50 kata pertama  
+                $limitedDescription = implode(' ', array_slice($words, 0, 10));
+
+                echo $limitedDescription." ..."; ?></p>
+                  
+              </h4>
+              <h4 class="harga">
+                <p>Rp. <?php
+                  
+                   
+
+                  $harga_promo = $row2['harga_promo'];
+                  $harga_promo_format = number_format($harga_promo, 0, ',', '.');
+                  echo $harga_promo_format;
+                  
+                  
+                  
+                  ?></p>
+              </h4>
+
+              <a href="../Show_Page/showpage.php?id_booking=<?php echo $row2['id_booking']; ?>" style="text-decoration: none; color: inherit;">
+              <button class="cek_tiket">Cek Tiket</button>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+
+  
+    
+  <?php }else{
+
+  
 ?>
           <div class="col-md-4 mb-3">
-          <a href="../Show_Page/showpage.php?id_booking= <?php echo $row2['id_destinasi'] ?>" style="text-decoration: none; color: inherit;">
+          <a href="../Show_Page/showpage.php?id_booking= <?php echo $row2['id_booking'] ?>" style="text-decoration: none; color: inherit;">
             <div class="card card_show">
               <img src="pict/wisata1.png" class="card-img-top" alt="Project 1" />
               <div class="card-body">
@@ -216,7 +265,7 @@ while($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
                   
                    
 
-                  $harga_promo = $row['harga_promo'];
+                  $harga_promo = $row2['harga_promo'];
                   $harga_promo_format = number_format($harga_promo, 0, ',', '.');
                   echo $harga_promo_format;
                   
@@ -224,7 +273,7 @@ while($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
                   
                   ?></p>
                   <p class="real_price">Rp. <?php 
-                   $harga_awal = $row['harga_awal'];
+                   $harga_awal = $row2['harga_awal'];
                    $harga_awal_format = number_format($harga_awal, 0, ',', '.');
                    echo $harga_awal_format;
                   
@@ -235,7 +284,7 @@ while($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
                   ?></p>
 
                 </h4>
-                <p class="card-text deskripsi_liburan"><?php $deskripsi= $row['deskripsi']; 
+                <p class="card-text deskripsi_liburan"><?php $deskripsi= $row2['deskripsi']; 
                 $words = str_word_count($deskripsi, 1);
 
                 // Mengambil 50 kata pertama  
@@ -254,7 +303,9 @@ while($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
           </a>
           
           </div>
-          <?php } ?>
+          <?php }
+        
+        } ?>
         </div>
       </div>
   

@@ -60,7 +60,7 @@ if (isset($_GET["id_blog"])) {
           <div class="row mt-5 justify-content-center">
           <?php
 
-$result = mysqli_query($conn, "SELECT * FROM `destinasiwisata` WHERE id_jenis = $id_jenis_now LIMIT 3;");
+$result = mysqli_query($conn, "SELECT * FROM `destinasiwisata` WHERE id_jenis = $id_jenis_now ORDER BY RAND() LIMIT 3;");
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
 ?>
