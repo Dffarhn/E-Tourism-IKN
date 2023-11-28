@@ -41,7 +41,7 @@ include "../database/koneksi.php";
                 <div class="dashboard_menu">
                                <div class="card">
                                  <div class="card-header">
-                                   <h3 class="card-title">Daftar Berita</h3>
+                                   <h3 class="card-title">Daftar Blog</h3>
                                  </div>
                                  <div class="card-body">
                                  <table id="example1" class="table table-bordered table-striped">
@@ -79,8 +79,8 @@ include "../database/koneksi.php";
                                        ?></td>
                                        <td><?php echo $rows['nama_jenis'];?></td>
                                        <td>
-                                        <a style="color: white;"href="">
-                                            <button class="btn btn-primary btn-sm">
+                                        <a style="color: white;"href="../Admin_Page/editproses.php?id_destinasi=<?php echo $rows['id_destinasi']; ?>">
+                                            <button class="btn btn-success btn-sm">
 
                                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> 
                                                 <g clip-path="url(#clip0_585_346)"> 
@@ -165,7 +165,7 @@ include "../database/koneksi.php";
                                        <td><?php echo $rows['nama_jenis'];?></td>
                                        <td>
                                           <a style="color: white;"href="">
-                                            <button class="btn btn-primary btn-sm">
+                                            <button class="btn btn-success btn-sm">
 
                                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> 
                                                 <g clip-path="url(#clip0_585_346)"> 
