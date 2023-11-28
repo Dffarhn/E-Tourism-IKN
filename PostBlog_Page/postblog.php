@@ -32,7 +32,7 @@ if (isset($_SESSION['edit_blog'])) {
           while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
           { ?>
 
-          <form action="uploadblogproses.php" method="post">
+          <form action="../CRUD_konten/CRUD.php" method="post">
             <div class="row mt-4 justify-content-center px-4">
                 <div class="col-md-6 mb-3">
                     <input type="text" name = "judul" placeholder="Judul" value = "<?php echo $row['judul']?>">
@@ -82,13 +82,14 @@ if (isset($_SESSION['edit_blog'])) {
                 <textarea name="deskripsi" id="" cols="30" rows="10" placeholder="Deskripsi"><?php echo $row['deskripsi']?></textarea>
 
             </div>
+            <input type="hidden" name="id_destinasi" value="<?php echo $row['id_destinasi']; ?>">
             <?php 
             }
             ?>
 
             <div class="px-4 d-flex justify-content-end">
-                <input type="submit" value = "Delete" class="delete_button"></input>
-                <input type="submit" value = "Update" class="upload_button"></input>
+                <input type="submit" name="action" value = "Delete" class="delete_button"></input>
+                <input type="submit" name="action" value = "Update" class="upload_button"></input>
 
             </div>
 
