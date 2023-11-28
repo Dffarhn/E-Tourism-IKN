@@ -1,4 +1,8 @@
 <?php 
+session_start();
+
+if (isset($_SESSION['admin_root']))
+{
 
 include "../database/koneksi.php";
 
@@ -240,3 +244,9 @@ include "../database/koneksi.php";
     
 </body>
 </html>
+<?php 
+}else{
+  header("location:../Login_Page/Login.php");
+}
+
+mysqli_close($conn); ?>
