@@ -104,7 +104,17 @@ body{
     width: 100%;
     object-fit: cover;
     height: 60vh;
+    border-radius: 20px;
 
+}
+
+.our_service_word p{
+    margin: 0%;
+    color: #777777;
+}
+.our_service_word p{
+    margin: 0%;
+    color: #777777;
 }
 
 
@@ -150,7 +160,27 @@ footer{
 }
 
 .service_achivement button{
-    padding: 1% 3%;
+    padding: 5% 1%;
+    width: 80%;
+    margin: 5% 3%;
+    border: 2px solid #2C8900;
+    background-color: transparent;
+    display: block;
+    border-radius: 10px;
+    color: #2C8900;
+    font-size: 18px;
+
+}
+
+.service_achivement img{
+    display: block;
+    margin: auto;
+    margin-bottom: 2%;
+}
+.service_achivement svg{
+    display: block;
+    margin: auto;
+    margin-bottom: 2%;
 }
 
 
