@@ -1,7 +1,9 @@
 <?php 
+session_start();
 include "../database/koneksi.php";
 
-if (isset($_GET['id_booking'])) {
+if (isset($_GET['id_booking']) && isset($_SESSION['admin'])) {
+  echo $_SESSION['admin'];
   $id_booking_now = $_GET['id_booking'];
 
   $result_booking = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` WHERE id_booking = '$id_booking_now';");

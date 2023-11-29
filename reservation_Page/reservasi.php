@@ -1,7 +1,9 @@
 <?php 
+session_start();
 include "../database/koneksi.php";
 
-if (isset($_GET['id_booking'])) {
+if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
+  echo $_SESSION['admin'];
   $id_booking_now = $_GET['id_booking'];
 
   $result_booking = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` WHERE id_booking = '$id_booking_now';");
@@ -211,16 +213,14 @@ if (isset($_GET['id_booking'])) {
             <form action="">
               <h3>Metode Pembayaran</h3>
     
-              <select id="Transfer Bank" name="Transfer Bank">
-                <option value="" disabled selected>Transfer Bank</option>
-                <option value="bca">BCA</option>
-                <option value="bsi">BSI</option>
+              <select id="Jenis_Pembayaran" name="Jenis_Pembayaran" onchange="updatePaymentOptions()">
+                <option value="" disabled selected>Jenis_Pembayaran</option>
+                <option value="Transfer_Bank">Transfer Bank</option>
+                <option value="E-Wallet">E-Wallet</option>
                 <!-- Add more options as needed -->
               </select>
-              <select id="E-Wallet" name="E-Wallet">
-                <option value="" disabled selected>E-Wallet</option>
-                <option value="bca">BCA</option>
-                <option value="bsi">BSI</option>
+              <select id="Pembayaran_melalui" name="Pembayaran_melalui">
+                <option value="" disabled selected>Pembayaran Melalui</option>
                 <!-- Add more options as needed -->
               </select>
               <select id="Voucher" name="Voucher">
@@ -346,6 +346,7 @@ if (isset($_GET['id_booking'])) {
         var hargaPromo = <?php echo $row['harga_promo']; ?>;
       </script>
       <script src="tes.js"></script>
+      <script src="pembayaran_option.js"></script>
     </html>
 <?php } ?>
 
