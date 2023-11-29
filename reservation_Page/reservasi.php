@@ -3,7 +3,7 @@ session_start();
 include "../database/koneksi.php";
 
 if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
-  echo $_SESSION['admin'];
+  // echo $_SESSION['admin'];
   $id_booking_now = $_GET['id_booking'];
 
   $result_booking = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` WHERE id_booking = '$id_booking_now';");
@@ -19,7 +19,7 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <title>E-Tourism</title>
-        <link rel="stylesheet" href="stylereservasi.css">
+        <link rel="stylesheet" href="reservestyle.css">
       </head>
       <body>
         <?php 
@@ -179,85 +179,90 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
         </div>
     
       </div>
-    
-      <div class="row mt-5 justify-content-center px-5 reservasi_form">
-        <div class="col-md-6 mb-3 reservasi_data">
-    
-          <form action="">
-            <label>
-              Nama Lengkap
-            </label> <br>
-            <input type="text" placeholder="Masukkan nama lengkap"> <br>
-            <label>
-              Reservasi
-            </label> <br>
-            <input type="date" > <br>
-            <label>
-              No Handphone
-            </label> <br>
-            <input type="text" placeholder="Masukkan No Handphone"> <br>
-            <label>
-              Alamat Email
-            </label> <br>
-            <input type="text" placeholder="Masukkan Alamat Email"> <br>
-    
-    
-    
-          </form>
-          
-    
-          
-        </div>
-        <div class="col-md-6 mb-3 reservasi_pembayaran">
-          <div class="mt-5 px-2">
-            <form action="">
-              <h3>Metode Pembayaran</h3>
-    
-              <select id="Jenis_Pembayaran" name="Jenis_Pembayaran" onchange="updatePaymentOptions()">
-                <option value="" disabled selected>Jenis_Pembayaran</option>
-                <option value="Transfer_Bank">Transfer Bank</option>
-                <option value="E-Wallet">E-Wallet</option>
-                <!-- Add more options as needed -->
-              </select>
-              <select id="Pembayaran_melalui" name="Pembayaran_melalui">
-                <option value="" disabled selected>Pembayaran Melalui</option>
-                <!-- Add more options as needed -->
-              </select>
-              <select id="Voucher" name="Voucher">
-                <option value="" disabled selected>Voucher</option>
-                <option value="bca">BCA</option>
-                <option value="bsi">BSI</option>
-                <!-- Add more options as needed -->
-              </select>
-            </form>
-          </div>
-    
-          <div class="total_pembayaran">
-            <h3>Jumlah Pembayaran</h3>
-            <p id = "hasil_pembayaran">
-               Rp
-              <?php
-                  
-                   
 
-                  $harga_promo = $row['harga_promo'];
-                  $harga_promo_format = number_format($harga_promo, 0, ',', '.');
-                  echo $harga_promo_format;
-                  
-                  
-                  
-                  ?> 
+      <form action="purchase_now.php" method="post">
         
-                  </p>
-            <button>Konfirmasi Pembayaran</button>
-    
+        <div class="row mt-5 justify-content-center px-5 reservasi_form">
+          <div class="col-md-6 mb-3 reservasi_data">
+      
+            
+              <label>
+                Nama Lengkap
+              </label> <br>
+              <input type="text" name="nama_lengkap" placeholder="Masukkan nama lengkap"> <br>
+              <label>
+                Reservasi
+              </label> <br>
+              <input type="date" name="reservasi" > <br>
+              <label>
+                No Handphone
+              </label> <br>
+              <input type="text" name="no_hp" placeholder="Masukkan No Handphone"> <br>
+              <label>
+                Alamat Email
+              </label> <br>
+              <input type="text" name = "email" placeholder="Masukkan Alamat Email"> <br>
+      
+      
+      
+            
+      
+            
           </div>
-    
+          <div class="col-md-6 mb-3 reservasi_pembayaran">
+            <div class="mt-5 px-2">
+              
+                <h3>Metode Pembayaran</h3>
+      
+                <select id="Jenis_Pembayaran" name="Jenis_Pembayaran" onchange="updatePaymentOptions()">
+                  <option value="" disabled selected>Jenis_Pembayaran</option>
+                  <option value="Transfer_Bank">Transfer Bank</option>
+                  <option value="E-Wallet">E-Wallet</option>
+                  <!-- Add more options as needed -->
+                </select>
+                <select id="Pembayaran_melalui" name="Pembayaran_melalui">
+                  <option value="" disabled selected>Pembayaran Melalui</option>
+                  <!-- Add more options as needed -->
+                </select>
+                <select id="Voucher" name="Voucher">
+                  <option value="" disabled selected>Voucher</option>
+                  <option value="bca">BCA</option>
+                  <option value="bsi">BSI</option>
+                  <!-- Add more options as needed -->
+                </select>
+            </div>
+      
+            <div class="total_pembayaran">
+              <h3>Jumlah Pembayaran</h3>
+              <p id = "hasil_pembayaran">
+                 Rp
+                <?php
+                    
+                     
+  
+                    $harga_promo = $row['harga_promo'];
+                    $harga_promo_format = number_format($harga_promo, 0, ',', '.');
+                    echo $harga_promo_format;
+                    
+                    
+                    
+                    ?> 
+          
+                    </p>
+              <input type="submit" value="Konfirmasi Pembayaran">
+              <input type="hidden" name="harga" value = "<?php echo $harga_promo ?>">
+              <input type="hidden" name="id_admin" value = "<?php echo $_SESSION['admin'] ?>">
+              <input type="hidden" name="id_booking" value = "<?php echo $id_booking_now?>">
+      
+            </div>
+      
+          </div>
+      
+      
+      
         </div>
-    
-    
-    
-      </div>
+      
+      </form>
     
       <div class="about_home">
         <div class="row mt-5 justify-content-center">

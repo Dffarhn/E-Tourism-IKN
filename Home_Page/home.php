@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['admin']))
 {
-  echo $_SESSION['admin'];
+  // echo $_SESSION['admin'];
 
   include "../database/koneksi.php";
 ?>
