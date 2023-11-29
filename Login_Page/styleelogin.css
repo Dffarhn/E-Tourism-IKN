@@ -42,7 +42,9 @@ body{
     width: 90%;
     height: 100%;
     z-index: -1;
-    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    object-fit: cover;
+    transition: opacity 2s ease-in-out;
 }
 .hidden {
     opacity: 0; /* Menyembunyikan gambar dengan opacitas 0 */
