@@ -18,23 +18,57 @@ if(isset($_POST['action'])) {
     $action = $_POST['action'];
     
     if($action == 'Delete') {
-        $deleteblog = mysqli_query($conn, "DELETE FROM `bookingdestinasi` WHERE `id_booking`='$id_update';");
+        $deletebooking = mysqli_query($conn, "DELETE FROM `bookingdestinasi` WHERE `id_booking`='$id_update';");
         
-        if ($deleteblog) {
-            echo '<script>alert("delete successful!");</script>';
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=../Admin_Page/admin.php">';
-            exit;
+        if ($deletebooking) {
+            echo '<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Page Title</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    </head>
+    <body>
+        <script>
+            Swal.fire({
+                title: "Delete Booking successful!",
+                icon: "success",
+            }).then(function() {
+                window.location.href = "../Admin_Page/admin.php";
+            });
+        </script>
+    </body>
+    </html>';
+ 	exit;
         } else {
             echo "mayah mayah";
         }
         // Proses untuk Delete
     } elseif($action == 'Update') {
-        $updateblog = mysqli_query($conn, "UPDATE `bookingdestinasi` SET `gambar`='$image_update',`judul`='$judul_update',`harga_awal`='$harga_update',`harga_promo`='$harga_promo_update',`deskripsi`='$deskripsi_update',`fasilitas`='$fasilitas_update',`id_testimoni`= NULL,`id_jenis`='$jenis_update' WHERE `id_booking`='$id_update'");
+        $updatebooking = mysqli_query($conn, "UPDATE `bookingdestinasi` SET `gambar`='$image_update',`judul`='$judul_update',`harga_awal`='$harga_update',`harga_promo`='$harga_promo_update',`deskripsi`='$deskripsi_update',`fasilitas`='$fasilitas_update',`id_testimoni`= NULL,`id_jenis`='$jenis_update' WHERE `id_booking`='$id_update'");
         
-        if ($updateblog) {
-            echo '<script>alert("update successful!");</script>';
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=../Admin_Page/admin.php">';
-            exit;
+        if ($updatebooking) {
+            echo '<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Page Title</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    </head>
+    <body>
+        <script>
+            Swal.fire({
+                title: "Update Booking successful!",
+                icon: "success",
+            }).then(function() {
+                window.location.href = "../Admin_Page/admin.php";
+            });
+        </script>
+    </body>
+    </html>';
+ 	exit;
         } else {
             echo "mayah mayah";
         }
