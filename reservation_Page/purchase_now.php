@@ -9,15 +9,32 @@ $jenis_bayar = $_POST['Pembayaran_melalui'];
 $harga_pemesanan = $_POST['harga'];
 $id_admin_pemesan = $_POST['id_admin'];
 $id_booking_pemesan =   $_POST['id_booking'];
-echo $id_admin_pemesan;
 
 
 $purchase_booking = mysqli_query($conn, "INSERT INTO `booking_history`(`id_purchase`, `nama_pemesan`, `tanggal_pemesanan`, `no_hp_pemesanan`, `email_pemesanan`, `pembayaran`, `voucher`, `harga_total`, `id_admin`, `id_booking`) 
 VALUES (null,'$nama_pemesan','$date_pemesan','$nohp_pemesan','$email_pemesan','$jenis_bayar',NULL,'$harga_pemesanan','$id_admin_pemesan','$id_booking_pemesan')");
         
         if ($purchase_booking) {
-            echo '<script>alert("Transaction successful!");</script>';
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=../Home_Page/home.php">';
+            echo '<!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Your Page Title</title>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+            </head>
+            <body>
+                <script>
+                    Swal.fire({
+                        title: "Transaction successful!",
+                        text : "Pesanan bisa dilihat di Purchase History",
+                        icon: "success",
+                    }).then(function() {
+                        window.location.href = "../Home_Page/home.php";
+                    });
+                </script>
+            </body>
+            </html>';
             exit;
         } else {
             echo "mayah mayah";
