@@ -62,12 +62,30 @@ body{
 .destinasi_container p{
     font-size: 23px;
 }
-.liburan_container .choose_liburan_container h4{
+.liburan_container .choose_liburan_container button{
     display: inline-block;
     color: #2C8900;
     border: 2px solid #2C8900;
-    
+    font-size: 23px;
     background-color: white;
+    padding: 10px 50px;
+    border-radius: 20px;
+}
+.liburan_container .choose_liburan_container button:hover{
+    display: inline-block;
+    color: white;
+    border: 2px solid #2C8900;
+    font-size: 23px;
+    background-color: #2C8900;
+    padding: 10px 50px;
+    border-radius: 20px;
+}
+.liburan_container .choose_liburan_container button.active{
+    display: inline-block;
+    color: white;
+    border: 2px solid #2C8900;
+    font-size: 23px;
+    background-color: #2C8900 ;
     padding: 10px 50px;
     border-radius: 20px;
 }
@@ -104,17 +122,7 @@ body{
     width: 100%;
     object-fit: cover;
     height: 60vh;
-    border-radius: 20px;
 
-}
-
-.our_service_word p{
-    margin: 0%;
-    color: #777777;
-}
-.our_service_word p{
-    margin: 0%;
-    color: #777777;
 }
 
 
