@@ -18,10 +18,28 @@ function changeTab(activeButton) {
             query = "SELECT * FROM `bookingdestinasi` ORDER BY RAND() LIMIT 6";
             break;
         case 'discountBtn':
-            query = "SELECT * FROM `bookingdestinasi` ORDER BY id_booking ASC LIMIT 6";
+            query = "SELECT * FROM `bookingdestinasi` ORDER BY harga_promo ASC LIMIT 6;";
             break;
     }
 
     console.log(query);
     document.getElementById('query').value = query;
+
+    console.log("jalan")
+
+    $.ajax({
+        type: "POST",
+        url: "klasifikasi.php",
+        data: { query: query },
+        success: function(response) {
+            // Handle response from the server
+            console.log(response);
+    
+            // Update konten di dalam elemen dengan ID 'result-container'
+            document.getElementById('result-container').innerHTML = response;
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
 }
