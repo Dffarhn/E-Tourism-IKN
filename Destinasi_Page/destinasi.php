@@ -12,6 +12,7 @@ include "../database/koneksi.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>E-Tourism</title>
     <link rel="stylesheet" href="styledestinasi.css" />
+    <link rel="stylesheet" href="../asset/css card/image_card.css">
   </head>
   <body>
     <?php 
@@ -46,7 +47,7 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
           <div class="col-md-4 mb-3">
           <a href="../Show_Page/showpage.php?id_booking=<?php echo $row['id_booking']; ?>" style="text-decoration: none; color: inherit;">
             <div class="card card_show">
-              <img src="pict/wisata1.png" class="card-img-top" alt="Project 1">
+              <img src="../asset/pict/<?php echo $row['gambar']?>" class="card-img-top card_gambar" alt="Project 1">
               <div class="card-body">
               <h3 class="card-title"><?php echo $row['judul'] ?></h3>
                 <h4 class="card-text border-0 px-0 price_liburan ">
@@ -164,7 +165,7 @@ while($row = mysqli_fetch_array($result_makanan, MYSQLI_ASSOC))
         <div class="col-md-4 mb-3">
         <a href="../Blog_Page/blog.php?id_blog=<?php echo $row['id_destinasi']; ?>" style="text-decoration: none; color: inherit;">
           <div class="card card_show">
-            <img src="pict/wisata1.png" class="card-img-top" alt="Project 1">
+            <img src="../asset/pict/<?php echo $row['gambar']?>" class="card-img-top card_gambar" alt="Project 1">
             <div class="card-body">
               <h3 class="card-title"><?php echo $row['judul'] ?></h3>
               <p class="card-text deskripsi_liburan"><?php $deskripsi= $row['deskripsi']; 
@@ -258,13 +259,13 @@ while($row = mysqli_fetch_array($result_makanan, MYSQLI_ASSOC))
     <div class="transportasi_option px-5 mt-5">
       <div class="row mt-5 justify-content-center">
       <?php
-        $result_transportasi = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` b JOIN jeniswisata w on (b.id_jenis=w.id_jenis) WHERE w.nama_jenis = 'Transportasi' ORDER BY RAND() LIMIT 6;");
+        $result_transportasi = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` b JOIN jeniswisata w on (b.id_jenis=w.id_jenis) WHERE w.nama_jenis = 'Transportasi' ORDER BY RAND() LIMIT 3;");
         while($row3 = mysqli_fetch_array($result_transportasi, MYSQLI_ASSOC))
         {
         ?>
         <div class="col-md-4 mb-3">
           <div class="card">
-            <img src="pict/wisata1.png" class="card-img-top" alt="Project 1">
+            <img src="../asset/pict/<?php echo $row3['gambar']?>" class="card-img-top card_gambar" alt="Project 1">
             <div class="card-body">
               <h3 class="card-title"> <?php echo $row3['judul'] ?></h3>
 

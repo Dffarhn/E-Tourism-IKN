@@ -16,6 +16,7 @@ if (isset($_GET["id_blog"])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <title>E-Tourism</title>
         <link rel="stylesheet" href="styleblog.css" />
+        <link rel="stylesheet" href="../asset/css card/image_card.css">
       </head>
       <body>
         <?php 
@@ -27,9 +28,9 @@ if (isset($_GET["id_blog"])) {
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     { ?>
         <div class="row mt-5 justify-content-center px-5">
-          <div class="col-md-12 mb-3">
+          <div class="col-md-8 mb-3">
             <div class="card">
-              <img src="1.png" class="card-img-top" alt="Project 1" />
+              <img src="../asset/pict/<?php echo $row['gambar']?>" class="card-img-top" alt="Project 1" />
             </div>
           </div>
         </div>
@@ -67,7 +68,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
             <div class="col-md-4 mb-3">
             <a href="../Blog_Page/blog.php?id_blog=<?php echo $row['id_destinasi']; ?>" style="text-decoration: none; color: inherit;">
               <div class="card border-top-0 card_show">
-                <img src="pict/<?php echo $row['gambar']?>" class="card-img-top" alt="Project 1">
+                <img src="../asset/pict/<?php echo $row['gambar']?>" class="card-img-top card_gambar" alt="Project 1">
                 <div class="card-body">
                   <h5 class="card-title"><?php echo  $row['judul']; ?></h5>
                 </div>

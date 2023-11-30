@@ -22,6 +22,7 @@ if (isset($_GET['id_booking']) && isset($_SESSION['admin'])) {
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       <title>E-Tourism</title>
       <link rel="stylesheet" href="pageshow.css" />
+      <link rel="stylesheet" href="../asset/css card/image_card.css">
     </head>
     <body>
       <?php
@@ -30,14 +31,9 @@ if (isset($_GET['id_booking']) && isset($_SESSION['admin'])) {
       ?>
   
       <div class="row mt-5 justify-content-center px-5">
-        <div class="col-md-6 mb-3">
+        <div class="col-md-8 mb-3">
           <div class="card">
-            <img src="pict/preview1.png" class="card-img-top" alt="Project 1" />
-          </div>
-        </div>
-        <div class="col-md-6 mb-3">
-          <div class="card">
-            <img src="pict/preview2.png" class="card-img-top" alt="Project 2" />
+            <img src="../asset/pict/<?php echo $row['gambar']?>" class="card-img-top" alt="Project 1" />
           </div>
         </div>
       </div>
@@ -209,7 +205,7 @@ while($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
   if ($id_jenis_now == 2) {?>
   <div class="col-md-4 mb-3">
           <div class="card">
-            <img src="pict/wisata1.png" class="card-img-top" alt="Project 1">
+            <img src="../asset/pict/<?php echo $row2['gambar']?>" class="card-img-top card_gambar" alt="Project 1">
             <div class="card-body">
               <h3 class="card-title"> <?php echo $row2['judul'] ?></h3>
 
@@ -259,7 +255,7 @@ while($row2 = mysqli_fetch_array($result, MYSQLI_ASSOC))
           <div class="col-md-4 mb-3">
           <a href="../Show_Page/showpage.php?id_booking= <?php echo $row2['id_booking'] ?>" style="text-decoration: none; color: inherit;">
             <div class="card card_show">
-              <img src="pict/wisata1.png" class="card-img-top" alt="Project 1" />
+              <img src="../asset/pict/<?php echo $row2['gambar']?>" class="card-img-top card_gambar" alt="Project 1" />
               <div class="card-body">
                 <h3 class="card-title"><?php echo  $row2['judul']; ?></h3>
                 <h4 class="card-text border-0 px-0 price_liburan ">
