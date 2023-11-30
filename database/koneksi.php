@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost:3307";
 $username = "root";
-$dbname = "database_ikn";
+$dbname = "ikn_etourism";
 $password = "";
 
 // Create connection
