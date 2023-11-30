@@ -13,7 +13,7 @@ include "../database/koneksi.php";
 
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <title>E-Tourism</title>
-    <link rel="stylesheet" href="registrasistyle.css" />
+    <link rel="stylesheet" href="styleeregistrasi.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient shadow-sm navbar sticky-top">
@@ -77,9 +77,29 @@ include "../database/koneksi.php";
           fill="white"
         />
       </svg>
-      <img src="Pict\1.png" alt="Gambar Rusak" srcset="" class="pict_main" />
+      <img src="Pict\1.png" alt="Gambar Rusak" srcset="" class="pict_main" id="sliderImage"/>
     </div>
   </body>
+  <script>
+    var images = ['Pict/1.png', 'Pict/2.png', 'Pict/3.png'];
+    var currentIndex = 0;
+
+    function changeImage() {
+        var currentImage = document.getElementById('sliderImage');
+        currentImage.classList.add('hidden'); // Menyembunyikan gambar
+
+        // Ganti gambar ke gambar berikutnya
+        currentIndex = (currentIndex + 1) % images.length;
+        currentImage.src = images[currentIndex];
+
+        // Menampilkan kembali gambar setelah sedikit waktu
+        setTimeout(function() {
+            currentImage.classList.remove('hidden');
+        }, 50);
+    }
+
+    setInterval(changeImage, 3000);
+</script>
 </html>
 
 <?php mysqli_close($conn); ?>

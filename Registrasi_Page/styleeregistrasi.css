@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100%;
+    padding: 0%;
+    margin: 0%;
+    font-family: "Poppins";
+  }
+  .navbar {
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    border: 1px solid black !important;
+    background-color: rgb(224, 217, 217) !important;
+    border-radius: 5px;
+  }
+  
+  .pict_cont {
+    position: relative;
+    float: left;
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    align-items: flex-end;
+    /* Agar elemen anak yang meluas ke luar dibatasi oleh kontennya */
+  }
+  
+  .pict_wave {
+    position: absolute;
+    transform: scale(-1, 1);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none; /* Untuk memastikan elemen SVG tidak menghalangi interaksi dengan elemen di bawahnya */
+  }
+  
+  .pict_main {
+    width: 90%;
+    height: 100%;
+    z-index: -1;
+    margin-left: auto;
+    object-fit: cover;
+    transition: opacity 2s ease-in-out;
+  }
+  .hidden {
+      opacity: 0; /* Menyembunyikan gambar dengan opacitas 0 */
+  }
+  .register_form_cont {
+    float: left;
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 3% 3%;
+  }
+  
+  .register_form {
+    /* background-color: antiquewhite; */
+    width: 100%;
+  }
+  
+  .register_form h3 {
+    text-align: center;
+    margin-bottom: 10%;
+    font-size: 25px;
+  }
+  
+  .register_form label {
+    font-weight: 800;
+    font-size: 15px;
+  }
+  
+  .register_form input[type="text"] {
+    border: 1px solid;
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+    background-color: #d9d9d9;
+    padding-left: 10px;
+  }
+  
+  .register_form input[type="password"] {
+    border: 1px solid;
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+    background-color: #d9d9d9;
+    padding-left: 10px;
+  }
+  
+  .register_form p {
+    font-size: 12px;
+  }
+  
+  .register_form .main_form .button_register_cont input[type="submit"] {
+    border: 1px solid;
+    border-radius: 5px;
+    width: 50%;
+    height: 43px;
+    background-color: #2c8900;
+    color: white;
+    /* padding-top: % 0%; */
+  }
+  
+  .register_form .button_register_cont {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  @media screen and (max-width: 764px) {
+    body {
+      display: flex;
+      flex-direction: column-reverse; /* Reverse the order of the divs for smaller screens */
+    }
+  
+    .pict_cont {
+      order: 2; /* Set the order of the image div to 2 */
+      width: 100%;
+      position: relative; /* Add relative positioning */
+    }
+  
+    .pict_main {
+      width: 100%;
+    }
+  
+    .register_form_cont {
+      order: 1; /* Set the order of the form div to 1 */
+      margin-top: 125%; /* Optional: add some margin to the top of the form */
+      width: 80%; /* Set the width of the form container */
+      max-width: 400px; /* Optional: Set a maximum width for the form */
+      margin: auto; /* Center the form horizontally */
+      position: absolute; /* Add absolute positioning */
+      top: 0; /* Position at the top of the relative container */
+      left: 50%; /* Center horizontally within the relative container */
+      transform: translateX(-50%); /* Adjust for the centering */
+      z-index: 1; /* Set a higher z-index to appear on top of the image */
+    }
+  
+    .register_form {
+      background-color: rgba(255, 258, 176, 0.7);
+  
+      border-radius: 20px;
+      padding: 4% 5%;
+    }
+    .navbar {
+      order: 4;
+    }
+    .pict_wave {
+      display: none;
+    }
+  
+    .navbar-toggler {
+      background-color: transparent !important; /* Mengatur latar belakang menjadi transparan */
+      border: none !important; /* Menghapus garis tepi */
+      box-shadow: none !important; /* Menghapus bayangan */
+      outline: none !important; /* Menghapus focus outline */
+    }
+  
+    .navbar-toggler-icon {
+      background-color: transparent !important; /* Mengatur latar belakang ikon menjadi transparan */
+      border: none !important; /* Menghapus garis tepi ikon */
+    }
+  }
+  
