@@ -77,11 +77,11 @@ include "../database/koneksi.php";
           fill="white"
         />
       </svg>
-      <img src="Pict\1.png" alt="Gambar Rusak" srcset="" class="pict_main" id="sliderImage"/>
+      <img src="Pict\5.jpg" alt="Gambar Rusak" srcset="" class="pict_main" id="sliderImage"/>
     </div>
   </body>
   <script>
-    var images = ['Pict/1.png', 'Pict/2.png', 'Pict/3.png'];
+    var images = ['Pict/5.jpg', 'Pict/6.jpg', 'Pict/7.jpg'];
     var currentIndex = 0;
 
     function changeImage() {
