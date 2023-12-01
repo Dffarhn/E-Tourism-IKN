@@ -36,13 +36,18 @@ if (isset ($_GET['id_purchase'])){
             </div>
             <div class = "col-md-5 px-5 mt-3 ">
                 <h5 class = "my-5">Pesanan</h5>
-                <h5 class = "my-5">Dibeli</h5>
+                <h5 class = "my-5">Tanggal Reservasi</h5>
                 <h5 class = "my-5">Jenis Pembayaran</h5>
                 <h5 class = "my-5">Total Harga</h5>
             </div>
             <div class = "col-md-5 px-5 text-end mt-3 isi ">
                 <h5 class = "my-5"><?php echo  $row['judul']; ?></h5>
-                <h5 class = "my-5"><?php echo  $row['tanggal_pemesanan']; ?></h5>
+                <h5 class = "my-5"><?php  $tanggal_dari_database=$row['tanggal_pemesanan']; 
+                
+                $tanggal_diubah = date("d F Y", strtotime($tanggal_dari_database));
+
+// Menampilkan hasil
+echo $tanggal_diubah;?></h5>
                 <h5 class = "my-5"><?php echo  $row['pembayaran']; ?></h5>
                 <h5 class = "my-5">Rp <?php 
                    $harga_total = $row['harga_total'];
