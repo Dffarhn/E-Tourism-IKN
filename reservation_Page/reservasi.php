@@ -4,6 +4,7 @@ include "../database/koneksi.php";
 
 if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
   // echo $_SESSION['admin'];
+  $profile_now = $_SESSION['admin'];
   $id_booking_now = $_GET['id_booking'];
 
   $result_booking = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` WHERE id_booking = '$id_booking_now';");
@@ -182,6 +183,10 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
       </div>
 
       <form action="purchase_now.php" method="post">
+        <?php 
+        $result = mysqli_query($conn, "SELECT * FROM `admin` WHERE `id_admin` = '$profile_now'");
+        while($row5 = mysqli_fetch_array($result, MYSQLI_ASSOC))
+        {?>
         
         <div class="row mt-5 justify-content-center px-5 reservasi_form">
           <div class="col-md-6 mb-3 reservasi_data">
@@ -190,7 +195,7 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
               <label>
                 Nama Lengkap
               </label> <br>
-              <input type="text" name="nama_lengkap" placeholder="Masukkan nama lengkap"> <br>
+              <input type="text" value="<?php echo $row5['username'] ?>" name="nama_lengkap" placeholder="Masukkan nama lengkap"> <br>
               <label>
                 Reservasi
               </label> <br>
@@ -198,11 +203,12 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
               <label>
                 No Handphone
               </label> <br>
-              <input type="text" name="no_hp" placeholder="Masukkan No Handphone"> <br>
+              <input type="text" value="<?php echo $row5['no_handphone'] ?>" name="no_hp" placeholder="Masukkan No Handphone"> <br>
               <label>
                 Alamat Email
               </label> <br>
-              <input type="text" name = "email" placeholder="Masukkan Alamat Email"> <br>
+              <input type="text" value="<?php echo $row5['email'] ?>" name = "email" placeholder="Masukkan Alamat Email"> <br>
+          
       
       
       
@@ -210,6 +216,8 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
       
             
           </div>
+
+        <?php } ?>
           <div class="col-md-6 mb-3 reservasi_pembayaran">
             <div class="mt-5 px-2">
               

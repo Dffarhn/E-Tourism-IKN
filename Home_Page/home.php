@@ -136,13 +136,13 @@ include "klasifikasi.php"
     <div class = "our_service px-5">
       <div class="row mt-5 justify-content-center">
         <div class="col-md-6 mb-3">
-          <img class="ourservice_pict" src="pict/Ourservice.png" alt="" width=100% height=70%>
+          <img class="ourservice_pict" src="pict/Ourservice.png" alt="" width=100% height=70% style="border-radius: 10px;">
 
         </div>
         <div class="col-md-6 our_service_word" >
-          <h2>Our Service</h2>
+          <h1><strong>Our Service</strong></h1>
           <p>Ambil Promo Liburan Secepatnya Tanpa Ragu</p>
-          <div class="row mt-3 justify-content-center service_achivement">
+          <div class="row justify-content-center service_achivement">
             <div class="col-md-6 mb-3">
               <button> 
                 <img src="../Home_Page/pict/achivement/best.png" alt="salah">
