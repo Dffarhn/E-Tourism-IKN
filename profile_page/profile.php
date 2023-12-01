@@ -1,12 +1,17 @@
 <?php
+include "../database/koneksi.php";
 session_start();
 
 
 if (isset($_SESSION['admin']))
 {
+  $profile_now = $_SESSION['admin'];
+  $result = mysqli_query($conn, "SELECT * FROM `admin` WHERE `id_admin` = '$profile_now'");
+while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+{
+  
   // echo $_SESSION['admin'];
 
-  include "../database/koneksi.php";
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +24,7 @@ if (isset($_SESSION['admin']))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>E-Tourism</title>
-    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="profilestyle.css" />
   </head>
   <body>
     <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient shadow-sm navbar sticky-top ">
@@ -58,24 +63,45 @@ if (isset($_SESSION['admin']))
     include "../Navbar/navbarprofile.php"
     ?>
 
-    <div class="col-md-8 mt-5 px-5 content_profile">
-        <div class="data_pribadi">
-          <h3>Data Pribadi</h3>
-
-          <label for="">Username</label> <br>
-          <input type="text" readonly> <br>
-          <label for="">No Handphone</label> <br>
-          <input type="text" readonly> <br>
-          <label for="">Alamat Email</label> <br>
-          <input type="text" readonly>
-
-        </div>
-    </div>
+<div class="col-md-8 mt-5 px-5 content_profile">
+  <div class="data_pribadi">
+    <h3 id="judul">Data Pribadi</h3>
     
-  </body>
+    <form action="updateprofile.php" method="post">
+          <label for="">Username</label> <br>
+          <input type="text" name="username" placeholder="Username" value="<?php echo $row['username'] ?>" readonly> <br>
+  
+          <label for="">No Handphone</label> <br>
+          <input type="text" name="no_hp" placeholder="No Handphone" id="no_handphone" value="<?php echo $row['no_handphone'] ?>" readonly> <br>
+  
+          <label for="">Alamat Email</label> <br>
+          <input type="text" name="email" placeholder="Alamat Email" id="alamat_email" value="<?php echo $row['email'] ?>"readonly> <br>
+  
+          <input type="submit" value="update" id="submitBtn" class="hidden">
+          <input type="hidden" value ="<?php echo $row['id_admin'] ?>" name="id">
+        </form>
+  
+          <button onclick="enableEdit()" id="editBtn">Edit</button>
+      </div>
+  </div>
+
+<script>
+    function enableEdit() {
+        // Mengaktifkan pengeditan pada kolom No Handphone dan Alamat Email
+        document.getElementById("no_handphone").readOnly = false;
+        document.getElementById("alamat_email").readOnly = false;
+        document.getElementById("judul").innerText = "Edit Data Pribadi";
+
+        // Menampilkan tombol "update"
+        document.getElementById("submitBtn").classList.remove("hidden");
+
+        document.getElementById("editBtn").classList.add("hidden");
+    }
+</script>
 </html>
 
 <?php 
+} 
 }else{
   header("location:../Login_Page/Login.php");
 }
