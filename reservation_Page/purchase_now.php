@@ -30,7 +30,7 @@ VALUES (null,'$nama_pemesan','$date_pemesan','$nohp_pemesan','$email_pemesan','$
                         text : "Pesanan bisa dilihat di Purchase History",
                         icon: "success",
                     }).then(function() {
-                        window.location.href = "../Home_Page/home.php";
+                        window.location.href = "../berhasilbeli_page/pembelian.php";
                     });
                 </script>
             </body>

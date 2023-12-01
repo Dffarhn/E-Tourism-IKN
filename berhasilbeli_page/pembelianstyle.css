@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+
+.about_home{
+    background-color: #EAEAEA;
+
+}
+
+.sosmed_home{
+    background-color: #2C8900;
+    color: white !important;
+}
+
+.follow_sosmed svg{
+    margin: 0px 8px;
+}
+
+.about_us{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 70px;
+
+}
+.about_us div{
+    padding: 10px;
+}
+.about_us div h5{
+    font-weight: 800;
+    font-size: 24px;
+    
+}
+.about_us div p{
+    font-size: 18px;
+    
+}
+
+footer{
+    text-align: center;
+    background-color: #216700 ;
+    padding: 25px ;
+    color: white;
+}
+
+.notification_look{
+    box-shadow: 4px 4px 19.5px 0px rgba(109, 109, 109, 0.25) !important;
+}
+.notification_look .isi h5{
+    font-weight: 800;
+}
