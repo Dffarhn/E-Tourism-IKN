@@ -43,7 +43,7 @@ if(!isset($_SESSION['salahpw'])) {
         </div>
     </nav>
     <div class="pict_cont col-md-8">
-        <img src="Pict\1.png" alt="Gambar Rusak" srcset="" class="pict_main" id="sliderImage">
+        <img src="Pict/7.jpg" alt="Gambar Rusak" srcset="" class="pict_main" id="sliderImage">
         <svg class="pict_wave" width="317" height="982" viewBox="0 0 317 982" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M30.0145 -137.98L81.4815 -106.917C134.947 -74.2955 169.676 -34.6335 190.34 27.4411C211.777 89.5101 177.587 172.603 116.623 235.268C54.8876 297.939 -17.4084 384.568 16.9031 446.544C51.7296 508.516 106.305 556.326 166.221 619.838C191.338 646.464 220.562 733.205 166.037 795.823C118.5 865.5 88 918.5 31.5 959L0.869634 981.741L316.918 981.741L316.693 950.631C316.468 919.52 316.017 857.299 315.567 795.078C315.117 732.858 314.666 670.636 314.216 608.415C313.766 546.195 313.316 483.974 312.865 421.753C312.415 359.532 311.965 297.311 311.514 235.09C311.064 172.869 310.614 110.648 310.163 48.4275C309.713 -13.7934 309.263 -76.0144 309.037 -107.125L309.07 -138.236L30.0145 -137.98Z" fill="white"/>
         </svg>
@@ -94,7 +94,7 @@ if(!isset($_SESSION['salahpw'])) {
     </div>
 </body>
 <script>
-    var images = ['Pict/1.png', 'Pict/2.png', 'Pict/3.png'];
+    var images = ['Pict/7.jpg', 'Pict/5.jpg', 'Pict/6.jpg'];
     var currentIndex = 0;
 
     function changeImage() {
