@@ -15,6 +15,7 @@ $purchase_booking = mysqli_query($conn, "INSERT INTO `booking_history`(`id_purch
 VALUES (null,'$nama_pemesan','$date_pemesan','$nohp_pemesan','$email_pemesan','$jenis_bayar',NULL,'$harga_pemesanan','$id_admin_pemesan','$id_booking_pemesan')");
         
         if ($purchase_booking) {
+            $last_id = mysqli_insert_id($conn); 
             echo '<!DOCTYPE html>
             <html lang="en">
             <head>
@@ -30,7 +31,7 @@ VALUES (null,'$nama_pemesan','$date_pemesan','$nohp_pemesan','$email_pemesan','$
                         text : "Pesanan bisa dilihat di Purchase History",
                         icon: "success",
                     }).then(function() {
-                        window.location.href = "../berhasilbeli_page/pembelian.php";
+                        window.location.href = "../berhasilbeli_page/pembelian.php?id_purchase=' . $last_id . '";
                     });
                 </script>
             </body>

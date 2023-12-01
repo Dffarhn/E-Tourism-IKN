@@ -241,8 +241,8 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
                     
                      
   
-                    $harga_promo = $row['harga_promo'];
-                    $harga_promo_format = number_format($harga_promo, 0, ',', '.');
+                    $harga_promo1 = $row['harga_promo'];
+                    $harga_promo_format = number_format($harga_promo1, 0, ',', '.');
                     echo $harga_promo_format;
                     
                     
@@ -251,7 +251,7 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
           
                     </p>
               <input type="submit" value="Konfirmasi Pembayaran">
-              <input type="hidden" name="harga" value = "<?php echo $harga_promo ?>">
+              <input type="hidden" id ="harga" name="harga" value = "">
               <input type="hidden" name="id_admin" value = "<?php echo $_SESSION['admin'] ?>">
               <input type="hidden" name="id_booking" value = "<?php echo $id_booking_now?>">
       
@@ -351,7 +351,7 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
       <script>
         var hargaPromo = <?php echo $row['harga_promo']; ?>;
       </script>
-      <script src="tes.js"></script>
+      <script src="test.js"></script>
       <script src="pembayaran_option.js"></script>
     </html>
 <?php } ?>

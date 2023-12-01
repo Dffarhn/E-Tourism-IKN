@@ -1,6 +1,10 @@
 <?php 
 include "../database/koneksi.php";
-
+if (isset ($_GET['id_purchase'])){
+  $id_purchase_now = $_GET['id_purchase'];
+  $result = mysqli_query($conn, "SELECT *, d.judul FROM `booking_history` b JOIN bookingdestinasi d ON b.id_booking = d.id_booking WHERE b.id_purchase = $id_purchase_now ;");
+  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+  {
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -37,10 +41,19 @@ include "../database/koneksi.php";
                 <h5 class = "my-5">Total Harga</h5>
             </div>
             <div class = "col-md-5 px-5 text-end mt-3 isi ">
-                <h5 class = "my-5">Taman Nasional Bromo Tengger Semeru</h5>
-                <h5 class = "my-5">Minggu, 2 Desember 2023</h5>
-                <h5 class = "my-5">Transfer Bank</h5>
-                <h5 class = "my-5">Rp 2.500.000</h5>
+                <h5 class = "my-5"><?php echo  $row['judul']; ?></h5>
+                <h5 class = "my-5"><?php echo  $row['tanggal_pemesanan']; ?></h5>
+                <h5 class = "my-5"><?php echo  $row['pembayaran']; ?></h5>
+                <h5 class = "my-5">Rp <?php 
+                   $harga_total = $row['harga_total'];
+                   $harga_total_format = number_format($harga_total, 0, ',', '.');
+                   echo $harga_total_format;
+                  
+                  
+                  
+                  
+                  
+                  ?></h5>
             </div>
 
 
@@ -140,3 +153,5 @@ include "../database/koneksi.php";
       </body>
     </html>
 
+<?php } }
+?>

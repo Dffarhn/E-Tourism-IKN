@@ -34,4 +34,5 @@ function hitungTotal() {
     maximumFractionDigits: 2
     }).format(totalPembayaran);
     document.getElementById('hasil_pembayaran').innerText =totalPembayaranFormat;
+    document.getElementById('harga').value =totalPembayaran.toString();
   }
