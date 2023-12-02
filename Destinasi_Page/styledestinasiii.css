@@ -153,6 +153,15 @@ body{
     border-radius: 10px ;
     padding: 2% 0%;
 }
+.transportasi_option .cek_tiket:hover{
+    width: 100%;
+    font-size: 125%;
+    background-color: white;
+    color: #2C8900;
+    border: 1px solid #2C8900;
+    border-radius: 10px ;
+    padding: 2% 0%;
+}
 
 .about_home{
     background-color: #EAEAEA;
