@@ -1,0 +1,52 @@
+.content_profile{
+    width: 75%;
+    margin-left: 25%;
+    
+
+    
+}
+
+.data_pribadi{
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 4px 4px 19.5px 0px rgba(109, 109, 109, 0.25)
+}
+
+.data_pribadi input[type="text"] {
+    padding: 1%;
+    border-radius: 10px;
+    width: 30%;
+    margin: 2% 0%;
+
+}
+.data_pribadi label {
+    margin: 1% 0%;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.cek_tiket{
+    width: 30%;
+    font-size: 125%;
+    background-color: #2C8900;
+    color: white;
+    border: 0;
+    border-radius: 10px ;
+    padding: 1% 0%;
+}
+.cek_tiket:hover{
+    width: 30%;
+    font-size: 125%;
+    background-color: white;
+    color: #2C8900;
+    border: 2px solid #2C8900;
+    border-radius: 10px ;
+    padding: 1% 0%;
+}
+.cek_tiket:hover path{
+    fill: #2C8900 ;
+    
+}

@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $image_url = $_POST["image_url"];
     $deskripsi = $_POST["deskripsi"];
 
-    $insertblog = mysqli_query($conn, "INSERT INTO `bookingdestinasi`(`id_booking`, `gambar`, `judul`, `harga_awal`, `harga_promo`, `deskripsi`, `fasilitas`, `id_testimoni`, `id_jenis`) VALUES (NULL,'$image_url','$judul','$harga','$harga_promo','$deskripsi','$fasilitas',NULL,'$jenis')");
+    $insertblog = mysqli_query($conn, "INSERT INTO `bookingdestinasi`(`id_booking`, `gambar`, `judul`, `harga_awal`, `harga_promo`, `deskripsi`, `fasilitas`,  `id_jenis`) VALUES (NULL,'$image_url','$judul','$harga','$harga_promo','$deskripsi','$fasilitas','$jenis')");
 if ($insertblog) {
     echo '<!DOCTYPE html>
     <html lang="en">
