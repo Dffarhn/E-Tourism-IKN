@@ -28,7 +28,7 @@
     display: none;
 }
 
-.cek_tiket{
+.cek_tiket , .lihat_button{
     width: 30%;
     font-size: 125%;
     background-color: #2C8900;
@@ -37,7 +37,7 @@
     border-radius: 10px ;
     padding: 1% 0%;
 }
-.cek_tiket:hover{
+.cek_tiket:hover ,.lihat_button:hover{
     width: 30%;
     font-size: 125%;
     background-color: white;
@@ -49,4 +49,26 @@
 .cek_tiket:hover path{
     fill: #2C8900 ;
     
+}
+
+.list_pesanan{
+    padding: 1% 3%;
+    border-radius: 10px;
+    box-shadow: 4px 4px 19.5px 0px rgba(109, 109, 109, 0.25)
+    
+}
+
+.list_pesanan .detail{
+    width: 75%;
+    display: inline-block;
+
+}
+
+.list_pesanan .but_place{
+    width: 22%;
+    display: inline-block;
+}
+
+.lihat_button , .lihat_button:hover{
+    width: 100%;
 }
