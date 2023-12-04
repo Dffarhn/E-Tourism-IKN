@@ -46,11 +46,22 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
             <div class="detail" >
               
               <h5><?php echo $row['judul'] ?></h5>
-              <p><?php echo $row['tanggal_pemesanan'] ?></p>
-              <p><?php echo $row['nama_pemesan'] ?>, Rp. <?php echo $row['harga_total'] ?></p>
+              <p><?php $tanggal_dari_database=$row['tanggal_pemesanan']; 
+                
+                $tanggal_diubah = date("d F Y", strtotime($tanggal_dari_database));
+
+// Menampilkan hasil
+echo $tanggal_diubah;?></p>
+              <p><?php echo $row['nama_pemesan'] ?>, Rp. <?php  $harga_awal = $row['harga_total'];
+                   $harga_awal_format = number_format($harga_awal, 0, ',', '.');
+                   echo $harga_awal_format;
+                  
+                  ?></p>
             </div>
             <div class="but_place">
-              <button class="lihat_button" >Lihat</button>
+            <a href="../profile_page/showpesanan.php?id_pesanan=<?php echo $row['id_purchase']; ?>" style="text-decoration: none; color: inherit;">
+             <button class="lihat_button" >Lihat</button>
+            </a>
             </div>
           </div>
 <?php }?>
