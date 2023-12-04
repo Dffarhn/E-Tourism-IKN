@@ -155,38 +155,27 @@ if (isset($_GET['id_booking']) && isset($_SESSION['admin'])) {
         </div>
         <div class="col-md-2 mb-3"></div>
       </div>
+
+      
   
       <div class="row mt-5 justify-content-center px-5 text-center">
+      <?php
+
+$result_testi = mysqli_query($conn, "SELECT * ,d.username FROM testimoni h JOIN admin d ON h.id_admin = d.id_admin WHERE h.id_booking = '$id_booking_now' LIMIT 3 ");
+while($row9 = mysqli_fetch_array($result_testi, MYSQLI_ASSOC))
+{
+?>
         <div class="col-md-4 mb-3">
           <div class="card">
             <div class="card-body">
-              <img class="user_review_image" src="/Home Page/pict/destinasi1.png" alt="" srcset="" />
-              <p class="user_review_name">Our Client</p>
-              <h3 class="card-title rating_review">8,8/10</h3>
-              <p class="card-text deskripsi_liburan">The room I stayed in (superior) was comfortably larger than most city hotels. It was nicely furnished (I mostly liked the writing desk), the bed and sheets was clean and comfy.</p>
+              <p class="user_review_name"><?php echo $row9['username']?></p>
+              <h3 class="card-title rating_review"><?php echo $row9['rating']?>/5</h3>
+              <p class="card-text deskripsi_liburan"><?php echo $row9['isi_testimoni']?></p>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <img class="user_review_image" src="/Home Page/pict/destinasi1.png" alt="" srcset="" />
-              <p class="user_review_name">Our Client</p>
-              <h3 class="card-title rating_review">8,8/10</h3>
-              <p class="card-text deskripsi_liburan">The room I stayed in (superior) was comfortably larger than most city hotels. It was nicely furnished (I mostly liked the writing desk), the bed and sheets was clean and comfy.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <img class="user_review_image" src="/Home Page/pict/destinasi1.png" alt="" srcset="" />
-              <p class="user_review_name">Our Client</p>
-              <h3 class="card-title rating_review">8,8/10</h3>
-              <p class="card-text deskripsi_liburan">The room I stayed in (superior) was comfortably larger than most city hotels. It was nicely furnished (I mostly liked the writing desk), the bed and sheets was clean and comfy.</p>
-            </div>
-          </div>
-        </div>
+<?php }?>
+        
       </div>
   
       <div class="kamusuka_judul mt-5 px-5">
