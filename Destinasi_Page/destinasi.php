@@ -11,7 +11,7 @@ include "../database/koneksi.php";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>E-Tourism</title>
-    <link rel="stylesheet" href="styledestinasiii.css" />
+    <link rel="stylesheet" href="styledestinasiiid.css" />
     <link rel="stylesheet" href="../asset/css card/image_card.css">
   </head>
   <body>
@@ -30,7 +30,7 @@ include "../database/koneksi.php";
     </div>
 
 
-    <div class="destinasi_container mt-5 px-5">
+    <div class="destinasi_container mt-5 px-5" id="wisata">
         <div>
             <h3>Saatnya jelajah wisata!</h3>
 
@@ -109,7 +109,7 @@ while($row10 = mysqli_fetch_array($result_testi, MYSQLI_ASSOC))
     <div class="layanan_destinasi mt-5 px-5">
       <div>
         <h3>Pilih Layanan Destinasi</h3>
-        <p>Pilih Salah Satu Layanan Terpopuler Di Indonesia</p>
+        <p>Pilih Salah Satu Layanan Terpopuler Di IKN Nusantara</p>
       </div>
 
       <div class="row mt-5 justify-content-center">
@@ -154,14 +154,14 @@ while($row10 = mysqli_fetch_array($result_testi, MYSQLI_ASSOC))
     
     <div class="destinasi_container mt-5 px-5">
       <div>
-          <h3>Ngeuliner Asik Indonesia</h3>
-          <p>Rasakan kenikmatan kuliner khas indonesia</p>
+          <h3>Ngeuliner Asik IKN Nusantara</h3>
+          <p>Rasakan kenikmatan kuliner khas IKN nusantara</p>
 
       </div>
 
     </div>
 
-    <div class="Jelajah_container px-5 mt-5">
+    <div class="Jelajah_container px-5 mt-5" id="kuliner">
       <div class="row mt-5 justify-content-center">
       <?php
         $result_makanan = mysqli_query($conn, "SELECT * FROM `destinasiwisata` b JOIN jeniswisata w on (b.id_jenis=w.id_jenis) WHERE w.nama_jenis = 'Kuliner' ORDER BY RAND() LIMIT 3;");
@@ -210,7 +210,7 @@ while($row = mysqli_fetch_array($result_makanan, MYSQLI_ASSOC))
         
 
 
-    <div class="row mt-5 justify-content-center transportasi_container px-5">
+    <div class="row mt-5 justify-content-center transportasi_container px-5" id="transportasi">
       <div class="col-md-2 mb-3">
         
       </div>
@@ -218,7 +218,7 @@ while($row = mysqli_fetch_array($result_makanan, MYSQLI_ASSOC))
         <img src="/Destinasi Page/pict/transportasi_section.png" alt="" srcset="">
 
         <h3>Cari Transportasi Terbaik Untukmu</h3>
-        <p>Pilih salah satu Layanan  terpopuler di indonesia</p>
+        <p>Pilih salah satu Layanan  terpopuler di ikn nusantara</p>
 
         <div class="choose_transportasi_container">
           <h4>

@@ -32,7 +32,18 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav mx-auto">
             <a class="nav-link active text-dark me-5" aria-current="page" href="../Home_Page/home.php"> Home </a>
-            <a class="nav-link text-dark me-5" href="../Destinasi_Page/destinasi.php"> Destinasi </a>
+            <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark me-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Destinasi
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../destinasi_page/destinasi.php#wisata">Wisata</a></li>
+                        <li><a class="dropdown-item" href="../destinasi_page/destinasi.php#kuliner">Kuliner</a></li>
+                        <li><a class="dropdown-item" href="../destinasi_page/destinasi.php#transportasi">Transportasi</a></li>
+                        <li><a class="dropdown-item" href="#">Akomodasi</a></li>
+                        <!-- Tambahkan destinasi lainnya sesuai kebutuhan -->
+                    </ul>
+                </div>
             <a class="nav-link text-dark me-5" href="#project"> FAQ </a>
             <a class="nav-link text-dark me-5" href="../profile_page/profile.php"> Profile </a>
             <a class="nav-link text-dark me-5" href="../Login_Page/logout.php"> Logout </a>

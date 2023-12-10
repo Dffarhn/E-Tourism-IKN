@@ -19,7 +19,7 @@ if (isset($_SESSION['admin']))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>E-Tourism</title>
-    <link rel="stylesheet" href="testyle.css" />
+    <link rel="stylesheet" href="testylessd.css" />
     <link rel="stylesheet" href="../asset/css card/image_card.css">
   </head>
   <body>
@@ -70,7 +70,7 @@ if (isset($_SESSION['admin']))
                   <img src="/Home Page/pict/fill3top.png" class="card-img-top" alt="...">
                 </div> -->
 
-            <h1 class="gretting_word p-5">MILIKI PENGALAMAN YANG TAK TERLUPAKAN</h1>
+            <h1 class="gretting_word p-5">IKN Menanti, E-Tourism Siap Mengantarkan Anda ke Destinasi Impian.</h1>
         </div>
         <div class="col-md-2 mt-5" >
         </div>
@@ -81,8 +81,8 @@ if (isset($_SESSION['admin']))
             <h4>Destinasi Terbaik</h4>
         </div>
         <div>
-            <h3>Jelajahi Destinasi Wisata Indonesia</h3>
-            <p>Pilih Salah Satu Destinasi Wisata Terpopuler Di Indonesia</p>
+            <h3>Jelajahi Destinasi Wisata IKN Nusantara</h3>
+            <p>Pilih Salah Satu Destinasi Wisata Terpopuler Di IKN Nusantara</p>
 
         </div>
     </div>

@@ -17,16 +17,19 @@ body{
 
 
 .gretting_cont{
-    background-image: url("pict/fillheader.png");
+    background-image: url("pict/iknnusantara.jpeg");
     background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover;
     object-fit: contain;
     width: 100%;
     height: 80vh;
 }
 .gretting_word{
-    color: white;
-    font-weight: 800;
+    color: #ffffff;
+	-webkit-text-stroke: 1px #282828;
+	text-shadow: 0px 4px 4px #282828;
+    font-weight: 1000;
     font-size: 325%;
     text-align: start;
     padding-top: 10%;

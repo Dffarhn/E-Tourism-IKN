@@ -6,17 +6,21 @@ body{
 
 
 .gretting_cont{
-    background-image: url("pict/backgroundtop1.png");
+    background-image: url("pict/tesikn.jpeg");
     background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover;
     object-fit: contain;
     width: 100%;
     height: 80vh;
 }
 .gretting_word{
-    color: white;
-    font-weight: 800;
-    font-size: 52px;
+    /* color: rgb(255, 255, 255); */
+    color: #ffffff;
+	-webkit-text-stroke: 1px #282828;
+	text-shadow: 0px 4px 4px #282828;
+    font-weight: 1000;
+    font-size: 60px;
 }
 
 .destinasi_container h4{

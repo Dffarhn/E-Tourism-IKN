@@ -82,7 +82,7 @@
                     Dashboard 
                 </button>
             </a>
-            <a href="../PostBooking_page/postbooking.php" style="text-decoration: none; color: inherit;">
+            <a href="../Admin_Page/bookingshow.php" style="text-decoration: none; color: inherit;">
                 <button class="btn">
                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_585_337)">
@@ -98,7 +98,7 @@
                     Post Booking
                 </button>
             </a>
-                <a href="../PostBlog_Page/postblog.php" style="text-decoration: none; color: inherit;">
+                <a href="../Admin_Page/blogshow.php" style="text-decoration: none; color: inherit;">
                 <button class="btn">
 
                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">

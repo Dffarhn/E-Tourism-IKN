@@ -18,10 +18,12 @@ if (isset($_SESSION['admin']) && isset($_GET['id_pesanan']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>E-Tourism</title>
     <link rel="stylesheet" href="profilestylerr.css" />
+    <link rel="stylesheet" href="ratingstar.css">
   </head>
   <body>
 
@@ -66,14 +68,26 @@ echo $tanggal_diubah; ?></p>
         <h3>Beri Review</h3>
         <textarea name="review" id="" cols="30" rows="10" style="width: 100%;"></textarea>
         <h3>Rating</h3>
-        <select id="rating" name="rating">
+        <!-- <select id="rating" name="rating">
             <option value="" disabled selected>Rating</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-        </select>
+        </select> -->
+        <div class="rating-box">
+        <!-- <header>How was your experience?</header> -->
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+
+        <input type="hidden" id="rating" name="rating" value="">
 
         <input type="hidden" name="id_admin" value = <?php echo $row['id_admin'] ?> >
         <input type="hidden" name="id_booking" value = <?php echo $row['id_booking'] ?> >
@@ -92,6 +106,7 @@ echo $tanggal_diubah; ?></p>
     </div>
     
   </body>
+  <script src="starrat.js"></script>
 </html>
 
 <?php 
