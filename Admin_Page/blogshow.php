@@ -51,7 +51,7 @@ include "../database/koneksi.php";
 
   </div>
   </a>
-          <section class="content mt-5 daftar_booking">
+  <section class="content mt-5 daftar_berita">
             <div class="container-fluid">
               <!-- Small boxes (Stat box) -->
               <div class="row">
@@ -63,7 +63,7 @@ include "../database/koneksi.php";
                 <div class="dashboard_menu">
                                <div class="card">
                                  <div class="card-header">
-                                   <h3 class="card-title">Daftar Booking</h3>
+                                   <h3 class="card-title">Daftar Blog</h3>
                                  </div>
                                  <div class="card-body">
                                  <table id="example1" class="table table-bordered table-striped">
@@ -80,7 +80,7 @@ include "../database/koneksi.php";
       
                            <?php
                           $nomor = 1;
-                          $results = mysqli_query($conn, "SELECT d.*, w.nama_jenis FROM bookingdestinasi d join jeniswisata w on (d.id_jenis=w.id_jenis) ORDER BY d.id_booking DESC;");
+                          $results = mysqli_query($conn, "SELECT d.*, w.nama_jenis FROM destinasiwisata d join jeniswisata w on (d.id_jenis=w.id_jenis) ORDER BY d.id_destinasi DESC;");
                           while($rows = mysqli_fetch_array($results, MYSQLI_ASSOC))
                           {
                           ?>
@@ -101,7 +101,7 @@ include "../database/koneksi.php";
                                        ?></td>
                                        <td><?php echo $rows['nama_jenis'];?></td>
                                        <td>
-                                          <a style="color: white;"href="../Admin_Page/editproses.php?id_booking=<?php echo $rows['id_booking']; ?>">
+                                        <a style="color: white;"href="../Admin_Page/editproses.php?id_destinasi=<?php echo $rows['id_destinasi']; ?>">
                                             <button class="btn btn-success btn-sm">
 
                                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> 
