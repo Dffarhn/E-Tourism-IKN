@@ -95,6 +95,10 @@ while($row10 = mysqli_fetch_array($result_testi, MYSQLI_ASSOC))
                     </svg>
                 </h4>
                 <?php } ?>
+                <a href="../CRUD_konten/CARTproses.php?id_booking=<?php echo $row['id_booking']; ?>">
+                  <button>Add cart</button>
+
+                </a>
               </div>
             </div>
           </a>
