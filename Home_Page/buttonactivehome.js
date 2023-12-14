@@ -15,7 +15,7 @@ function changeTab(activeButton) {
             query = "SELECT * FROM `bookingdestinasi` ORDER BY id_booking DESC LIMIT 6";
             break;
         case 'terpopulerBtn':
-            query = "SELECT * FROM `bookingdestinasi` ORDER BY RAND() LIMIT 6";
+            query = "SELECT b.*, CEIL(AVG(t.rating)) AS rata_rata_rating FROM bookingdestinasi b JOIN testimoni t ON b.id_booking = t.id_booking GROUP BY b.id_booking ORDER BY rata_rata_rating DESC;";
             break;
         case 'discountBtn':
             query = "SELECT * FROM `bookingdestinasi` ORDER BY harga_promo ASC LIMIT 6;";

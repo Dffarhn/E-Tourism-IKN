@@ -263,7 +263,7 @@ include "klasifikasi.php"
     
 
   </body>
-  <script src="buttonactivehom.js"></script>
+  <script src="buttonactivehome.js"></script>
 </html>
 
 <?php 
