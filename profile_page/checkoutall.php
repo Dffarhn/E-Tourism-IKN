@@ -2,15 +2,11 @@
 session_start();
 include "../database/koneksi.php";
 
-if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
+if (isset($_SESSION['admin'])) {
   // echo $_SESSION['admin'];
   $profile_now = $_SESSION['admin'];
-  $id_booking_now = $_GET['id_booking'];
 
-  $result_booking = mysqli_query($conn, "SELECT * FROM `bookingdestinasi` WHERE id_booking = '$id_booking_now';");
-  while($row = mysqli_fetch_array($result_booking, MYSQLI_ASSOC))
-  
-  { ?>
+?>
     <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -21,7 +17,7 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <title>E-Tourism</title>
-        <link rel="stylesheet" href="reservestyle.css">
+        <link rel="stylesheet" href="../reservation_Page/reservestyle.css">
       </head>
       <body>
         <?php 
@@ -72,7 +68,12 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
               <h3>Detail Pesanan</h3>          
           </div>
       </div>
-    
+
+      <?php
+      $result_booking = mysqli_query($conn, "SELECT * FROM cart c JOIN bookingdestinasi bd ON c.id_booking = bd.id_booking WHERE c.id_admin = '$profile_now';");
+  while($row = mysqli_fetch_array($result_booking, MYSQLI_ASSOC))
+  
+  { ?>
       <div class="row mt-5 justify-content-center px-5">
         <div class="booking_review col-md-12  ">
       
@@ -179,8 +180,10 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
             </div>
         </div>
         </div>
+        
     
       </div>
+      <?php } ?>
 
       <form action="purchase_now.php" method="post">
         <?php 
@@ -360,41 +363,12 @@ if (isset($_GET['id_booking'] ) && isset($_SESSION['admin'])) {
         var hargaPromo = <?php echo $row['harga_promo']; ?>;
       </script>
       <script src="test.js"></script>
-      <script src="pembayaran_option.js"></script>
+      <script src="../reservation_Page/pembayaran_option.js"></script>
     </html>
-<?php } ?>
 
 <?php  
-}else {
-  echo '<!DOCTYPE html>
-          <html lang="en">
-          <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Your Page Title</title>
-              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
-          </head>
-          <body>
-              <script>
-                  Swal.fire({
-                      title: "Harus Login Dulu",
-                      text: "Untuk melanjutkan pesanan harus login",
-                      icon: "warning",
-                      showCancelButton: true,
-                      cancelButtonText: "Batal",
-                      confirmButtonText: "Login",
-                      reverseButtons: true
-                  }).then(function(result) {
-                      if (result.isConfirmed) {
-                          window.location.href = "../Login_Page/Login.php";
-                      } else {
-
-                        window.history.back();
-                      }
-                  });
-              </script>
-          </body>
-          </html>';
+}else{
+  echo "ga bisa nyambung";
 }
 
 ?>

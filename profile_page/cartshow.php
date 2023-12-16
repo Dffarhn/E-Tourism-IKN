@@ -23,7 +23,7 @@ if (isset($_SESSION['admin']))
     <title>E-Tourism</title>
     <link rel="stylesheet" href="profilestylerr.css" />
     <link rel="stylesheet" href="../Home_Page/testylessd.css">
-    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="carts.css">
   </head>
   <body>
 
@@ -35,8 +35,11 @@ if (isset($_SESSION['admin']))
     ?>
 
     <div class="col-md-8 mt-5 px-5 content_profile">
+        <h3>Keranjang</h3>
+        <a href="../profile_page/checkoutall.php" style="text-decoration: none; color: inherit;">
+        <button>Check Out ALL</button>
+        </a>
         <div class="data_pribadi">
-          <h3>Keranjang</h3>
 
 <?php
 

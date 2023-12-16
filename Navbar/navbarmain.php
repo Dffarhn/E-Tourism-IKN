@@ -46,7 +46,18 @@
                 </div>
             <a class="nav-link text-dark me-5" href="#project"> FAQ </a>
             <a class="nav-link text-dark me-5" href="../profile_page/profile.php"> Profile </a>
+            <?php
+
+if (isset($_SESSION['admin']))
+{
+?>
             <a class="nav-link text-dark me-5" href="../Login_Page/logout.php"> Logout </a>
+
+            <?php 
+}else{?>
+  <a class="nav-link text-dark me-5" href="../Login_Page/Login.php"> Login </a>
+  <?php
+} ?>
           </div>
         </div>
       

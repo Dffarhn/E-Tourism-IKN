@@ -2,9 +2,7 @@
 session_start();
 
 
-if (isset($_SESSION['admin']))
-{
-  // echo $_SESSION['admin'];
+
 
   include "../database/koneksi.php";
 ?>
@@ -343,8 +341,5 @@ document.addEventListener("DOMContentLoaded", function () {
 </html>
 
 <?php 
-}else{
-  header("location:../Home_Page/home2.php");
-}
 
 mysqli_close($conn); ?>

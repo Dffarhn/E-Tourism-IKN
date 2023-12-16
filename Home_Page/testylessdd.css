@@ -102,6 +102,10 @@ body{
     font-size: 23px;
 }
 
+.liburan_container{
+    opacity: 0;
+}
+
 .price_liburan{
     color:#2C8900 ;
 }
@@ -195,5 +199,73 @@ footer{
     margin-bottom: 2%;
 }
 
+
+@keyframes fadeInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.gretting_word,
+.destinasi_animasi,
+.ourservice_pict,
+.service_achivement {
+    opacity: 0;
+}
+
+.fadeInFromTop {
+    animation: fadeInFromTop 1.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+.fadeInFromBottom {
+    animation: fadeInFromBottom 1.5s ease-out;
+    animation-fill-mode: forwards; /* Retains styles from the last keyframe after animation ends */
+}
+.fadeInFromRight {
+    animation: fadeInFromRight 1.5s ease-out;
+    animation-fill-mode: forwards; /* Retains styles from the last keyframe after animation ends */
+}
+.fadeInFromLeft {
+    animation: fadeInFromLeft 1.5s ease-out;
+    animation-fill-mode: forwards; /* Retains styles from the last keyframe after animation ends */
+}
 
 

@@ -2,7 +2,7 @@
 session_start();
 include "../database/koneksi.php";
 
-if (isset($_GET['id_booking']) && isset($_SESSION['admin'])) {
+if (isset($_GET['id_booking'])) {
   // echo $_SESSION['admin'];
   $id_booking_now = $_GET['id_booking'];
 
