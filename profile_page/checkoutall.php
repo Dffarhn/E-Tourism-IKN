@@ -5,6 +5,8 @@ include "../database/koneksi.php";
 if (isset($_SESSION['admin'])) {
   // echo $_SESSION['admin'];
   $profile_now = $_SESSION['admin'];
+  $totalPrice = 0;
+
 
 ?>
     <!DOCTYPE html>
@@ -12,6 +14,7 @@ if (isset($_SESSION['admin'])) {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
@@ -68,122 +71,73 @@ if (isset($_SESSION['admin'])) {
               <h3>Detail Pesanan</h3>          
           </div>
       </div>
+    
+    <div class="row mt-5 justify-content-center px-5">
 
-      <?php
-      $result_booking = mysqli_query($conn, "SELECT * FROM cart c JOIN bookingdestinasi bd ON c.id_booking = bd.id_booking WHERE c.id_admin = '$profile_now';");
-  while($row = mysqli_fetch_array($result_booking, MYSQLI_ASSOC))
-  
-  { ?>
-      <div class="row mt-5 justify-content-center px-5">
-        <div class="booking_review col-md-12  ">
-      
-          <div class="row mt-5 justify-content-center px-5 show_judul">
-            <div class="col-md-8 mb-3">
-                <h3>
-                <?php echo $row['judul'] ?>
-                </h3>
-            </div>
-            <div class="col-md-4 mb-3 cekout">
-              <button id="minus">
-                
-                <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1" y="1" width="41" height="41" rx="20.5" stroke="#2C8900" stroke-width="2"/>
-                  <path d="M25.882 20.47V22.472H15.508V20.47H25.882Z" fill="#2C8900"/>
-                </svg>
-              </button>
     
-              <input type="number" value="1" id="input" onKeyDown="return false"/>
+
+    <?php
+
+$jumlahperbarang = [];
+$hargaperbarang = [];
+$barangke = 0;
+
+$result_booking = mysqli_query($conn, "SELECT * FROM cart c JOIN bookingdestinasi bd ON c.id_booking = bd.id_booking WHERE c.id_admin = '$profile_now';");
+
+while ($row = mysqli_fetch_array($result_booking, MYSQLI_ASSOC)) {
+    ?>
     
-              <button id="plus">
-                
-                <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1" y="1" width="41" height="41" rx="20.5" stroke="#2C8900" stroke-width="2"/>
-                  <path d="M28.022 22.498H22.484V28.114H20.274V22.498H14.762V20.496H20.274V14.854H22.484V20.496H28.022V22.498Z" fill="#2C8900"/>
-                </svg>
-              </button>
-    
-            </div>
-        </div>
-        
-        <div class="row mt-5 justify-content-center px-5 show_about">
-            <div class="col-md-5 mb-3">
-                <div class="card container_desc">
-                  <div class="card-body">
-                    <h3 class="card-title">About</h3>
-                    <p>
-                    <?php echo $row['deskripsi'] ?>
-                    </p>
-                  </div>
+        <div class="mt-5 booking_review col-md-12">
+
+            <div class="row mt-5 justify-content-center px-5 show_judul">
+                <div class="col-md-8 mb-3">
+                    <h3>
+                        <?php echo $row['judul'] ?>
+                    </h3>
+                </div>
+                <div class="col-md-4 mb-3 cekout">
+                    <button class="minus">
+                        <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="41" height="41" rx="20.5" stroke="#2C8900" stroke-width="2"/>
+                            <path d="M25.882 20.47V22.472H15.508V20.47H25.882Z" fill="#2C8900"/>
+                        </svg>
+                    </button>
+
+                    <input type="number" value="1" class="input" id="quantity<?php echo $barangke; ?>" onKeyDown="return false"/>
+
+                    <button class="plus">
+                        <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="41" height="41" rx="20.5" stroke="#2C8900" stroke-width="2"/>
+                            <path d="M28.022 22.498H22.484V28.114H20.274V22.498H14.762V20.496H20.274V14.854H22.484V20.496H28.022V22.498Z" fill="#2C8900"/>
+                        </svg>
+                    </button>
+
                 </div>
             </div>
-            <div class="col-md-5 mb-3 ">
-              <div class="card container_desc">
-                <div class="card-body">
-                  <h3 class="card-title">Facilities</h3>
-                  <div class="show_fasilitas">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M25.5848 32.5833H27.9365C29.1265 32.5833 30.104 31.6625 30.2457 30.5008L32.5832 7.15416H25.4998V1.41666H22.709V7.15416H15.6682L16.0932 10.4692C18.5157 11.135 20.7823 12.3392 22.1423 13.6708C24.1823 15.6825 25.5848 17.765 25.5848 21.165V32.5833ZM1.4165 31.1667V29.75H22.709V31.1667C22.709 31.9317 22.0715 32.5833 21.2498 32.5833H2.83317C2.054 32.5833 1.4165 31.9317 1.4165 31.1667ZM22.709 21.25C22.709 9.91666 1.4165 9.91666 1.4165 21.25H22.709ZM1.4165 24.0833H22.6665V26.9167H1.4165V24.0833Z" fill="#FF5722"/>
-                      </svg>
-        
-                      Makan 3x sehari
-                  </div>
-                  <div class="show_fasilitas">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_365_220)">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M22.3325 5.66666C23.1217 5.66669 23.8952 5.88644 24.5665 6.30129C25.2378 6.71614 25.7804 7.3097 26.1334 8.0155L28.0969 11.9411C28.4426 11.7994 28.7826 11.6464 29.1169 11.4821C29.4532 11.3141 29.8424 11.2866 30.1989 11.4057C30.5555 11.5247 30.8501 11.7805 31.0181 12.1167C31.186 12.453 31.2135 12.8422 31.0945 13.1988C30.9755 13.5553 30.7197 13.85 30.3834 14.0179C30.0429 14.1695 29.7005 14.3168 29.3563 14.4599L30.7177 17.1842C31.0132 17.7748 31.167 18.4263 31.1668 19.0867V22.6667C31.1677 23.2648 31.0419 23.8562 30.7977 24.4022C30.5536 24.9482 30.1965 25.4363 29.7502 25.8343V27.625C29.7502 28.1886 29.5263 28.7291 29.1278 29.1276C28.7292 29.5261 28.1887 29.75 27.6252 29.75C27.0616 29.75 26.5211 29.5261 26.1226 29.1276C25.724 28.7291 25.5002 28.1886 25.5002 27.625V26.9167H8.50016V27.625C8.50016 28.1886 8.27628 28.7291 7.87776 29.1276C7.47925 29.5261 6.93875 29.75 6.37516 29.75C5.81158 29.75 5.27108 29.5261 4.87256 29.1276C4.47405 28.7291 4.25016 28.1886 4.25016 27.625V25.8343C3.38033 25.0552 2.8335 23.9247 2.8335 22.6667V19.0853C2.83376 18.4258 2.98751 17.7754 3.28258 17.1856L4.63266 14.4826C4.29125 14.3381 3.95266 14.1851 3.61975 14.0193C3.28517 13.8492 3.03085 13.5544 2.9116 13.1985C2.79235 12.8426 2.81772 12.4541 2.98225 12.1167C3.06535 11.9502 3.18046 11.8016 3.32099 11.6796C3.46153 11.5575 3.62475 11.4644 3.80131 11.4054C3.97787 11.3465 4.16431 11.3229 4.34999 11.3361C4.53566 11.3492 4.71692 11.3988 4.88341 11.4821C5.21775 11.6478 5.55916 11.7994 5.90341 11.9411L7.86691 8.01691C8.21973 7.31086 8.7622 6.717 9.43353 6.30189C10.1049 5.88678 10.8785 5.66682 11.6678 5.66666H22.3325ZM10.6252 18.4167C10.0616 18.4167 9.52108 18.6405 9.12256 19.0391C8.72405 19.4376 8.50016 19.9781 8.50016 20.5417C8.50016 21.1053 8.72405 21.6458 9.12256 22.0443C9.52108 22.4428 10.0616 22.6667 10.6252 22.6667C11.1887 22.6667 11.7292 22.4428 12.1278 22.0443C12.5263 21.6458 12.7502 21.1053 12.7502 20.5417C12.7502 19.9781 12.5263 19.4376 12.1278 19.0391C11.7292 18.6405 11.1887 18.4167 10.6252 18.4167ZM23.3752 18.4167C22.8116 18.4167 22.2711 18.6405 21.8726 19.0391C21.474 19.4376 21.2502 19.9781 21.2502 20.5417C21.2502 21.1053 21.474 21.6458 21.8726 22.0443C22.2711 22.4428 22.8116 22.6667 23.3752 22.6667C23.9387 22.6667 24.4792 22.4428 24.8778 22.0443C25.2763 21.6458 25.5002 21.1053 25.5002 20.5417C25.5002 19.9781 25.2763 19.4376 24.8778 19.0391C24.4792 18.6405 23.9387 18.4167 23.3752 18.4167ZM22.3325 8.5H11.6678C11.4347 8.49996 11.2051 8.55748 10.9995 8.66745C10.7939 8.77743 10.6186 8.93645 10.4892 9.13041L10.4013 9.28341L8.60216 12.8789C10.7952 13.5362 13.7503 14.1667 17.0002 14.1667C20.0347 14.1667 22.8099 13.617 24.9477 13.0092L25.3967 12.8789L23.599 9.28341C23.4947 9.0749 23.3406 8.89534 23.1503 8.76066C22.9601 8.62598 22.7395 8.54034 22.5082 8.51133L22.3339 8.5H22.3325Z" fill="#FF5722"/>
-                      </g>
-                      <defs>
-                      <clipPath id="clip0_365_220">
-                      <rect width="34" height="34" fill="white"/>
-                      </clipPath>
-                      </defs>
-                      </svg>
-                      
-        
-                      Jeep perhari
-                  </div>
-                  <div class="show_fasilitas">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <mask id="mask0_365_206" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="1" y="1" width="32" height="32">
-                      <path d="M26.2085 15.5833V26.2083M26.2085 26.2083V31.1667H7.79183V26.2083M26.2085 26.2083H31.1668V15.5833C31.1668 13.4583 29.7502 10.9792 27.6252 9.20834C25.5002 7.4375 22.6668 7.08334 22.6668 7.08334L17.0002 12.75M7.79183 26.2083H2.8335V15.5833C2.8335 13.4583 4.25016 10.9792 6.37516 9.20834C8.50016 7.4375 11.3335 7.08334 11.3335 7.08334L17.0002 12.75M7.79183 26.2083V15.5833M17.0002 12.75V19.125" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6.37516 9.20834C8.50016 7.4375 11.3335 7.08334 11.3335 7.08334L17.0002 12.75L22.6668 7.08334C22.6668 7.08334 25.5002 7.4375 27.6252 9.20834L29.0418 6.02084L27.6252 2.83334H6.37516L4.9585 6.02084L6.37516 9.20834Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </mask>
-                      <g mask="url(#mask0_365_206)">
-                      <path d="M0 0H34V34H0V0Z" fill="#FF5722"/>
-                      </g>
-                      </svg>
-                      
-        
-                      Pakaian Ganti
-                  </div>
-                  <div class="show_fasilitas">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8523 29.75H20.148C24.5694 29.75 26.7808 29.75 28.3689 28.7087C29.0541 28.2596 29.6443 27.6801 30.1057 27.0031C31.1668 25.4447 31.1668 23.273 31.1668 18.9323C31.1668 14.5902 31.1668 12.4199 30.1057 10.8616C29.6443 10.1846 29.0542 9.605 28.3689 9.15591C27.3489 8.48583 26.0711 8.24641 24.1147 8.16141C23.1811 8.16141 22.3778 7.46725 22.1951 6.56766C22.0554 5.90873 21.6925 5.31822 21.1678 4.89593C20.643 4.47364 19.9886 4.24548 19.315 4.25H14.6853C13.2857 4.25 12.0801 5.22041 11.8052 6.56766C11.6225 7.46725 10.8192 8.16141 9.88566 8.16141C7.93066 8.24641 6.65283 8.48725 5.63141 9.15591C4.94662 9.60509 4.35694 10.1847 3.896 10.8616C2.8335 12.4199 2.8335 14.5902 2.8335 18.9323C2.8335 23.273 2.8335 25.4433 3.89458 27.0031C4.35358 27.6774 4.94291 28.2568 5.63141 28.7087C7.2195 29.75 9.43091 29.75 13.8523 29.75ZM17.0002 13.1367C13.7404 13.1367 11.0969 15.7307 11.0969 18.9309C11.0969 22.1326 13.7404 24.7265 17.0002 24.7265C20.2599 24.7265 22.9034 22.1326 22.9034 18.9323C22.9034 15.7307 20.2599 13.1367 17.0002 13.1367ZM17.0002 15.4544C15.0452 15.4544 13.4585 17.0113 13.4585 18.9323C13.4585 20.8519 15.0452 22.4088 17.0002 22.4088C18.9552 22.4088 20.5418 20.8519 20.5418 18.9323C20.5418 17.0113 18.9552 15.4544 17.0002 15.4544ZM23.6897 14.2956C23.6897 13.6552 24.2181 13.1367 24.8712 13.1367H26.4437C27.0953 13.1367 27.6252 13.6552 27.6252 14.2956C27.6222 14.6057 27.4962 14.9019 27.2749 15.1192C27.0537 15.3365 26.7552 15.4571 26.4451 15.4544H24.8712C24.7175 15.4559 24.565 15.4271 24.4225 15.3697C24.2799 15.3123 24.1501 15.2273 24.0404 15.1197C23.9307 15.0121 23.8432 14.8839 23.7831 14.7425C23.7229 14.6011 23.6911 14.4493 23.6897 14.2956Z" fill="#FF5722"/>
-                      </svg>
-                      
-        
-                      Fotografer Pribadi
-                  </div>
-                  <div class="show_fasilitas">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1.4165 26.9167V5.66667H4.24984V19.8333H15.5832V8.5H26.9165C28.4748 8.5 29.8089 9.05486 30.9186 10.1646C32.0283 11.2743 32.5832 12.6083 32.5832 14.1667V26.9167H29.7498V22.6667H4.24984V26.9167H1.4165ZM9.9165 18.4167C8.73595 18.4167 7.73248 18.0035 6.90609 17.1771C6.0797 16.3507 5.6665 15.3472 5.6665 14.1667C5.6665 12.9861 6.0797 11.9826 6.90609 11.1562C7.73248 10.3299 8.73595 9.91667 9.9165 9.91667C11.0971 9.91667 12.1005 10.3299 12.9269 11.1562C13.7533 11.9826 14.1665 12.9861 14.1665 14.1667C14.1665 15.3472 13.7533 16.3507 12.9269 17.1771C12.1005 18.0035 11.0971 18.4167 9.9165 18.4167ZM18.4165 19.8333H29.7498V14.1667C29.7498 13.3875 29.4722 12.7202 28.9168 12.1649C28.3615 11.6096 27.6947 11.3324 26.9165 11.3333H18.4165V19.8333ZM9.9165 15.5833C10.3179 15.5833 10.6546 15.4473 10.9266 15.1753C11.1986 14.9033 11.3341 14.5671 11.3332 14.1667C11.3332 13.7653 11.1972 13.4286 10.9252 13.1566C10.6532 12.8846 10.3169 12.7491 9.9165 12.75C9.51511 12.75 9.17842 12.886 8.90642 13.158C8.63442 13.43 8.49889 13.7662 8.49984 14.1667C8.49984 14.5681 8.63584 14.9047 8.90784 15.1767C9.17984 15.4487 9.51606 15.5843 9.9165 15.5833ZM9.9165 15.5833C9.51511 15.5833 9.17842 15.4473 8.90642 15.1753C8.63442 14.9033 8.49889 14.5671 8.49984 14.1667C8.49984 13.7653 8.63584 13.4286 8.90784 13.1566C9.17984 12.8846 9.51606 12.7491 9.9165 12.75C10.3179 12.75 10.6546 12.886 10.9266 13.158C11.1986 13.43 11.3341 13.7662 11.3332 14.1667C11.3332 14.5681 11.1972 14.9047 10.9252 15.1767C10.6532 15.4487 10.3169 15.5843 9.9165 15.5833ZM18.4165 11.3333H26.9165C27.6957 11.3333 28.3629 11.611 28.9183 12.1663C29.4736 12.7217 29.7508 13.3884 29.7498 14.1667V19.8333H18.4165V11.3333Z" fill="#FF5722"/>
-                      </svg>
-                      
-        
-                      Kamar & Tenda
-                  </div>
-        
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2 mb-3 ">
-            </div>
+
         </div>
-        </div>
-        
+
+    <?php
+
+    $hargaperbarang[$barangke] = $row['harga_promo'];
+
+    $barangke += 1;
+
     
-      </div>
-      <?php } ?>
+    
+}
+
+$hargasementara = 0;
+
+foreach ($hargaperbarang as $i) {
+  $hargasementara += $i;
+  # code...
+}
+?>
+    </div>
+    
+   
+
 
       <form action="purchase_now.php" method="post">
         <?php 
@@ -244,17 +198,32 @@ if (isset($_SESSION['admin'])) {
                 </select>
             </div>
       
-            <div class="total_pembayaran">
+            <div id="result-harga" class="total_pembayaran">
               <h3>Jumlah Pembayaran</h3>
               <p id = "hasil_pembayaran">
                  Rp
                 <?php
+
+                // Access the totalHarga from $_SESSION
+                if (isset($_SESSION['totalHarga'])) {
+                    $totalHarga = $_SESSION['totalHarga'];
                     
-                     
-  
-                    $harga_promo1 = $row['harga_promo'];
+                    // Your further processing with $totalHarga...
+                    $totalPrice=$totalHarga;
+    
+                    $harga_promo1 =  $totalPrice;
                     $harga_promo_format = number_format($harga_promo1, 0, ',', '.');
                     echo $harga_promo_format;
+                    // or return the response you need
+                    unset($_SESSION['totalHarga']);
+                } else {
+                  $harga_promo1 =  $hargasementara;
+                  $harga_promo_format = number_format($harga_promo1, 0, ',', '.');
+                  echo $harga_promo_format;
+                }
+
+                
+                    
                     
                     
                     
@@ -362,7 +331,7 @@ if (isset($_SESSION['admin'])) {
       <script>
         var hargaPromo = <?php echo $row['harga_promo']; ?>;
       </script>
-      <script src="test.js"></script>
+      <script src="../profile_page/tombolsd.js"></script>
       <script src="../reservation_Page/pembayaran_option.js"></script>
     </html>
 

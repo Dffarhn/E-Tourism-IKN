@@ -116,7 +116,35 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 <?php 
 } 
 }else{
-  header("location:../Login_Page/Login.php");
+  echo '<!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Your Page Title</title>
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+          </head>
+          <body>
+              <script>
+                  Swal.fire({
+                      title: "Harus Login Dulu",
+                      text: "Untuk melanjutkan harus login",
+                      icon: "warning",
+                      showCancelButton: true,
+                      cancelButtonText: "Batal",
+                      confirmButtonText: "Login",
+                      reverseButtons: true
+                  }).then(function(result) {
+                      if (result.isConfirmed) {
+                          window.location.href = "../Login_Page/Login.php";
+                      } else {
+
+                        window.history.back();
+                      }
+                  });
+              </script>
+          </body>
+          </html>';
 }
 
 mysqli_close($conn); ?>

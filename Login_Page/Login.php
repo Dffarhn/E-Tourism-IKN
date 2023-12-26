@@ -79,6 +79,7 @@ if(!isset($_SESSION['salahpw'])) {
                 ?>
     
                 <p><a href="">Lupa kata sandi?</a></p>
+                <p><a href="../Home_Page/home2.php">Sign in as a guest</a></p>
                 <div class="button_login_cont">
                     <input class="signin" type="submit" value="Masuk">
 
