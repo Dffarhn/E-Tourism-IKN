@@ -120,6 +120,7 @@ while ($row = mysqli_fetch_array($result_booking, MYSQLI_ASSOC)) {
     <?php
 
     $hargaperbarang[$barangke] = $row['harga_promo'];
+    $id_booking_now[$barangke]= $row['id_booking'];
 
     $barangke += 1;
 
@@ -133,13 +134,16 @@ foreach ($hargaperbarang as $i) {
   $hargasementara += $i;
   # code...
 }
+
+
+
 ?>
     </div>
     
    
 
 
-      <form action="purchase_now.php" method="post">
+      <form action="purchase_query.php" method="post">
         <?php 
         $result = mysqli_query($conn, "SELECT * FROM `admin` WHERE `id_admin` = '$profile_now'");
         while($row5 = mysqli_fetch_array($result, MYSQLI_ASSOC))
@@ -217,9 +221,16 @@ foreach ($hargaperbarang as $i) {
                     // or return the response you need
                     unset($_SESSION['totalHarga']);
                 } else {
-                  $harga_promo1 =  $hargasementara;
-                  $harga_promo_format = number_format($harga_promo1, 0, ',', '.');
-                  echo $harga_promo_format;
+                  $totalHarga = $_SESSION['totalHarga'];
+                    
+                    // Your further processing with $totalHarga...
+                    $totalPrice=$totalHarga;
+    
+                    $harga_promo1 =  $totalPrice;
+                    $harga_promo_format = number_format($harga_promo1, 0, ',', '.');
+                    echo $harga_promo_format;
+                    // or return the response you need
+                    unset($_SESSION['totalHarga']);
                 }
 
                 
@@ -233,7 +244,16 @@ foreach ($hargaperbarang as $i) {
               <input type="submit" value="Konfirmasi Pembayaran">
               <input type="hidden" id ="harga" name="harga" value = "">
               <input type="hidden" name="id_admin" value = "<?php echo $_SESSION['admin'] ?>">
-              <input type="hidden" name="id_booking" value = "<?php echo $id_booking_now?>">
+              <?php
+              // Mengonversi array menjadi string
+$id_booking_str = implode(',', $id_booking_now);
+$harga_booking_str = implode(',', $hargaperbarang);
+?>
+
+<!-- Memasukkan nilai string ke dalam elemen input -->
+<input type="hidden" name="id_booking" value="<?php echo htmlspecialchars($id_booking_str); ?>">
+<input type="hidden" name="jumlahper_booking" value="<?php echo htmlspecialchars($_SESSION['jumlahperbarang_booking']); ?>">
+<input type="hidden" name="hargaper_booking" value="<?php echo htmlspecialchars($harga_booking_str); ?>">
       
             </div>
       
@@ -328,11 +348,13 @@ foreach ($hargaperbarang as $i) {
     
     
       </body>
-      <script>
-        var hargaPromo = <?php echo $row['harga_promo']; ?>;
-      </script>
-      <script src="../profile_page/tombolsd.js"></script>
+      <script src="../profile_page/tombolsdn.js"></script>
       <script src="../reservation_Page/pembayaran_option.js"></script>
+      <script>
+        $(document).ready(function() {
+            kirimDataKeServer();
+        });
+      </script>
     </html>
 
 <?php  

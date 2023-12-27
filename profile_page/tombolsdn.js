@@ -66,6 +66,7 @@ function kirimDataKeServer() {
         data: { query: jumlahperbarang },
         success: function(response) {
             // Reload halaman
+            console.log("reloadjalan");
             
 
             reloadSpecificFile();
@@ -103,3 +104,5 @@ function reloadSpecificFile() {
         }
     });
 }
+
+console.log(jumlahperbarang)

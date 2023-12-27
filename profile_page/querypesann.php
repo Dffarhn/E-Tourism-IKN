@@ -19,6 +19,9 @@ if (isset ($_POST['query'])) {
   //     $totalHarga += $jumlah;
   // }
 
+  $jumlahper_booking_str = implode(',', $jumlahperbarang);
+  $_SESSION['jumlahperbarang_booking'] = $jumlahper_booking_str;
+
   for ($i=0; $i < count($hargaperbarang) ; $i++) { 
 
     $totalHarga += $hargaperbarang[$i]*$jumlahperbarang[$i];

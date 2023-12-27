@@ -38,7 +38,7 @@ if (isset($_SESSION['admin']))
 
 <?php
 
-$result = mysqli_query($conn, "SELECT * ,d.judul FROM booking_history h JOIN bookingdestinasi d ON h.id_booking = d.id_booking WHERE h.id_admin = '$profile_now' ");
+$result = mysqli_query($conn, "SELECT * ,d.judul FROM booking_history h JOIN bookingdestinasi d ON h.id_booking = d.id_booking WHERE h.id_admin = '$profile_now' ORDER BY id_purchase DESC; ");
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
 ?>

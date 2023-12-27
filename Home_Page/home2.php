@@ -5,6 +5,15 @@ session_start();
 
 
   include "../database/koneksi.php";
+
+  if (isset($_SESSION['admin']))
+{
+  header('Location:home.php');
+
+
+}else{
+
+
 ?>
 
 <!DOCTYPE html>
@@ -341,5 +350,5 @@ document.addEventListener("DOMContentLoaded", function () {
 </html>
 
 <?php 
-
+}
 mysqli_close($conn); ?>
