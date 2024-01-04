@@ -21,7 +21,7 @@ if (isset($_SESSION['admin']))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>E-Tourism</title>
-    <link rel="stylesheet" href="profilestylerr.css" />
+    <link rel="stylesheet" href="profilestylerrs.css" />
     <link rel="stylesheet" href="../Home_Page/testylessdd.css">
     <link rel="stylesheet" href="carts.css">
   </head>
@@ -37,7 +37,7 @@ if (isset($_SESSION['admin']))
     <div class="col-md-8 mt-5 px-5 content_profile">
         <h3>Keranjang</h3>
         <a href="../profile_page/checkoutall.php" style="text-decoration: none; color: inherit;">
-        <button>Check Out ALL</button>
+        <button class="checkoutall">Check Out ALL</button>
         </a>
         <div class="data_pribadi">
 
